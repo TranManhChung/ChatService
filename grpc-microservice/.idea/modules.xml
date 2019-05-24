@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/api-gateway/api-gateway.iml" />
-      <module fileurl="file://$PROJECT_DIR$/chat2/chat2.iml" filepath="$PROJECT_DIR$/chat2/chat2.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/grpc-microservice.iml" filepath="$PROJECT_DIR$/.idea/grpc-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security-service/security-service.iml" filepath="$PROJECT_DIR$/security-service/security-service.iml" />
     </modules>
   </component>
 </project>
