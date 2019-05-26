@@ -20,11 +20,13 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
     public void login(AuthServiceOuterClass.LoginRequest request,
                       StreamObserver<AuthServiceOuterClass.TokenResponse> responseObserver) {
 
+        String token = "ERROR";
         //check username and password
+        if(request.getUsername().equals("user") && request.getPassword().equals("user")){
+            //generate token
+            token = generateToken(request.getUsername(), request.getPassword());
+        }
 
-
-        //generate token
-        String token = generateToken(request.getUsername(), request.getPassword());
         AuthServiceOuterClass.TokenResponse tokenResponse = AuthServiceOuterClass.TokenResponse.newBuilder()
                 .setToken(token).build();
         responseObserver.onNext(tokenResponse);
@@ -41,7 +43,7 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
     public void checkToken(AuthServiceOuterClass.Message request,
                            StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
 
-        String isValid = decodeToken(request.getMessage()) == null ? "invalid token" : "valid token";
+        String isValid = decodeToken(request.getMessage()) == null ? "INVALID_TOKEN" : "VALID_TOKEN";
         AuthServiceOuterClass.Message message = AuthServiceOuterClass.Message.newBuilder().setMessage(isValid).build();
         responseObserver.onNext(message);
         responseObserver.onCompleted();
