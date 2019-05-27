@@ -1,12 +1,13 @@
-package com.vng.uiwebapp;
+package com.vng.chatservice;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UiWebAppApplication {
+public class ChatServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UiWebAppApplication.class, args);
+        SpringApplication.run(ChatServiceApplication.class, args);
     }
 
 }

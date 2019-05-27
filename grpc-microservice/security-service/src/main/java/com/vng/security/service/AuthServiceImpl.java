@@ -22,7 +22,8 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
 
         String token = "ERROR";
         //check username and password
-        if(request.getUsername().equals("user") && request.getPassword().equals("user")){
+        if(request.getUsername().equals("user") && request.getPassword().equals("user")
+        || request.getUsername().equals("admin") && request.getPassword().equals("admin")){
             //generate token
             token = generateToken(request.getUsername(), request.getPassword());
         }

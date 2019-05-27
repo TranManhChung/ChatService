@@ -7,8 +7,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="chat" />
         <module name="ui-web-app" />
+        <module name="chat-service-1" />
         <module name="api-gateway" />
         <module name="security-service" />
       </profile>
@@ -17,7 +17,8 @@
       <module name="api-gateway" target="1.8" />
       <module name="apigateway" target="1.5" />
       <module name="chat" target="1.5" />
-      <module name="chat-service" target="1.5" />
+      <module name="chat-service" target="1.8" />
+      <module name="chat-service-1" target="1.8" />
       <module name="chat1" target="1.5" />
       <module name="security-service" target="1.5" />
       <module name="ui-web-app" target="1.8" />
@@ -26,6 +27,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
+      <module name="chat-service" options="-parameters" />
+      <module name="chat-service-1" options="-parameters" />
       <module name="ui-web-app" options="-parameters" />
     </option>
   </component>
