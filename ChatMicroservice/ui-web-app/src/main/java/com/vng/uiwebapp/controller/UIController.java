@@ -67,7 +67,7 @@ public class UIController {
     }
 
     @RequestMapping("/afterRegister")
-    public String rediect(User user, ModelMap model){
+    public String rediect(User user){
 
         if (!user.getPassword().equals(user.getConfirm())){
             return "/register";

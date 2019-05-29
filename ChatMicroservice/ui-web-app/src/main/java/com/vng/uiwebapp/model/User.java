@@ -1,6 +1,5 @@
 package com.vng.uiwebapp.model;
 
-import com.vng.apigateway.WebClientServiceOuterClass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
