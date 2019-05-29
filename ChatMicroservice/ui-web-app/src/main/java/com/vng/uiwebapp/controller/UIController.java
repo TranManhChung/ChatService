@@ -4,8 +4,9 @@ import com.vng.apigateway.WebClientServiceOuterClass;
 import com.vng.uiwebapp.grpc.GrpcClient;
 import com.vng.uiwebapp.model.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -49,7 +50,18 @@ public class UIController {
         }
         session.setAttribute("user", token);
         return "redirect:/chat";
-
     }
 
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String register(){
+        return "register";
+    }
+
+    @RequestMapping("/afterRegister")
+    public String rediect(User user, ModelMap model){
+
+
+
+        return "/chat";
+    }
 }
