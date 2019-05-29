@@ -77,11 +77,18 @@
 
     </div>
     <div id="tabs-3">
-
     </div>
+    <h1>Chat information</h1>
+    <h3 id="endpoint" th:utext="${endpoint}"/>
+    <h3 id="topic" th:utext="${topic}"/>
+<!--    <h3> SESSION BELOW </h3>-->
+<!--    <p hidden id="session_token" th:text="${session.user}" ></p>-->
 </div>
 
 <script>
+
+    // console.log('My village name, ' +String(${session.username}));
+
 
     var roomId = 'publicChatRoom'; //default room
     var stompClient = null;
@@ -160,7 +167,7 @@
         function connect() {
             username = document.querySelector('#username').innerText.trim();
 
-            var socket = new SockJS('http://localhost:8080/ws');
+            var socket = new SockJS(document.querySelector('#endpoint').innerText);
             stompClient = Stomp.over(socket);
 
             stompClient.connect({}, onConnected, onError);

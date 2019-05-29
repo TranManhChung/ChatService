@@ -21,13 +21,13 @@ public class GrpcClient {
         //channel.shutdownNow();
     }
 
-    public static String login(String username, String password){
+    public static WebClientServiceOuterClass.Response login(String username, String password){
 
         WebClientServiceOuterClass.LoginRequest request = WebClientServiceOuterClass.LoginRequest.newBuilder()
                 .setUsername(username).setPassword(password).build();
-        WebClientServiceOuterClass.TokenResponse response = webClientServiceBlockingStub.login(request);
+        WebClientServiceOuterClass.Response response = webClientServiceBlockingStub.login(request);
 
-        return response.getToken();
+        return response;
     }
 
     public static void logout(){}
