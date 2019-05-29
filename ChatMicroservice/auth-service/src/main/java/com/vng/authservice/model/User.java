@@ -24,5 +24,4 @@ public class User {
 
     @Column(name = "chat_code")
     private String chatCode;
-
 }

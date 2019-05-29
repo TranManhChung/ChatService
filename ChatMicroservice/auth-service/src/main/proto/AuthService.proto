@@ -6,6 +6,26 @@ message LoginRequest{
     string password = 2;
 }
 
+message Date {
+    int32 day = 1;
+    int32 month = 2;
+    int32 year = 3;
+}
+
+message RegisterRequest {
+    string fullname = 1;
+    string username = 2;
+    string password = 3;
+    string confirm = 4;
+    enum Gender {
+        MALE = 0;
+        FEMALE = 1;
+        OTHER = 2;
+    }
+    Gender gender = 5;
+    Date birthday = 6;
+}
+
 message TokenResponse{
     string token = 1;
 }
@@ -18,4 +38,5 @@ service AuthService{
     rpc login(LoginRequest) returns (TokenResponse);
     rpc logout(Message) returns (Message);
     rpc checkToken(Message) returns (Message);
+    rpc register(RegisterRequest) returns (Message);
 }

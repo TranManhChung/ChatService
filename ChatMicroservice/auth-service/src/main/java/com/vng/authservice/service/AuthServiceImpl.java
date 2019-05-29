@@ -52,6 +52,7 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
 
         String isValid = decodeToken(request.getMessage()) == null ? "INVALID_TOKEN" : "VALID_TOKEN";
         AuthServiceOuterClass.Message message = AuthServiceOuterClass.Message.newBuilder().setMessage(isValid).build();
+
         responseObserver.onNext(message);
         responseObserver.onCompleted();
 
@@ -101,4 +102,8 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         return jwt;
     }
 
+    @Override
+    public void register(AuthServiceOuterClass.RegisterRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+
+    }
 }
