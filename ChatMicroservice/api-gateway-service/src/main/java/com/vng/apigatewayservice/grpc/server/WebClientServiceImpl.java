@@ -42,18 +42,19 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
     public void getWebsocketInfo(WebClientServiceOuterClass.Message request,
                                  StreamObserver<WebClientServiceOuterClass.WebsocketInfo> responseObserver) {
 
-        String endpoint = "ERROR", topic = "";
+        String endpoint = "ERROR", topic = "", chatCode = "";
         AuthServiceOuterClass.Response response = GrpcClient.checkToken(request.getMessage());
         if(response.getToken().getStatus().equals("VALID_TOKEN")){
 
             WebSocketServiceOuterClass.Response websocketInfo = GrpcClient.getWebsocketInfo(response.getUsername(), response.getChatCode());
             endpoint = websocketInfo.getEndpoint();
             topic = websocketInfo.getTopic();
+            chatCode = response.getChatCode();
 
         }
 
         WebClientServiceOuterClass.WebsocketInfo websocketInfo = WebClientServiceOuterClass.WebsocketInfo.newBuilder()
-                .setEndpoint(endpoint).setTopic(topic).build();
+                .setEndpoint(endpoint).setTopic(topic).setChatCode(chatCode).build();
         responseObserver.onNext(websocketInfo);
         responseObserver.onCompleted();
 

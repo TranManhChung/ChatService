@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="@localhost">
+<dataSource name="@localhost [2]">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.15">
     <root id="1">
       <ServerVersion>5.7.26</ServerVersion>
@@ -13,7 +13,6 @@
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="3" parent="1" name="chat">
-      <Visible>1</Visible>
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="4" parent="1" name="information_schema">
@@ -29,7 +28,6 @@
       <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="8" parent="1" name="security">
-      <Visible>1</Visible>
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="9" parent="1" name="student">
@@ -926,222 +924,5 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="233" parent="3" name="hibernate_sequence">
-      <Engine>MyISAM</Engine>
-    </table>
-    <table id="234" parent="3" name="message">
-      <Engine>MyISAM</Engine>
-    </table>
-    <table id="235" parent="3" name="role">
-      <Engine>MyISAM</Engine>
-    </table>
-    <table id="236" parent="3" name="room">
-      <Engine>MyISAM</Engine>
-    </table>
-    <table id="237" parent="3" name="user">
-      <Engine>MyISAM</Engine>
-    </table>
-    <table id="238" parent="3" name="user_role">
-      <Engine>MyISAM</Engine>
-    </table>
-    <table id="239" parent="8" name="hibernate_sequence">
-      <Engine>MyISAM</Engine>
-    </table>
-    <table id="240" parent="8" name="user">
-      <Engine>MyISAM</Engine>
-    </table>
-    <column id="241" parent="233" name="next_val">
-      <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="242" parent="234" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="243" parent="234" name="email">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="244" parent="234" name="mess">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="245" parent="234" name="room">
-      <Position>4</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="246" parent="234" name="FKgv80pbinm2xc6e29upb9ieqxj">
-      <ColNames>room</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="247" parent="234" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="248" parent="235" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="249" parent="235" name="name">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="250" parent="235" name="UK_8sewwnpamngi6b1dwaa88askk">
-      <ColNames>name</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="251" parent="235" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="252" parent="235" name="UK_8sewwnpamngi6b1dwaa88askk">
-      <ColNames>name</ColNames>
-      <UnderlyingIndexName>UK_8sewwnpamngi6b1dwaa88askk</UnderlyingIndexName>
-    </key>
-    <column id="253" parent="236" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="254" parent="236" name="id_room">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="255" parent="236" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="256" parent="237" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="257" parent="237" name="chat_code">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="258" parent="237" name="email">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="259" parent="237" name="password">
-      <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="260" parent="237" name="UK_ob8kqyqqgmefl0aco34akdtpe">
-      <ColNames>email</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="261" parent="237" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="262" parent="237" name="UK_ob8kqyqqgmefl0aco34akdtpe">
-      <ColNames>email</ColNames>
-      <UnderlyingIndexName>UK_ob8kqyqqgmefl0aco34akdtpe</UnderlyingIndexName>
-    </key>
-    <column id="263" parent="238" name="user_id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="264" parent="238" name="role_id">
-      <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="265" parent="238" name="FKa68196081fvovjhkek5m97n3y">
-      <ColNames>role_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="266" parent="238" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>user_id
-role_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="267" parent="239" name="next_val">
-      <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="268" parent="240" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="269" parent="240" name="chat_code">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="270" parent="240" name="email">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="271" parent="240" name="name">
-      <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="272" parent="240" name="password">
-      <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="273" parent="240" name="UK_ob8kqyqqgmefl0aco34akdtpe">
-      <ColNames>email</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="274" parent="240" name="UK_gj2fy3dcix7ph7k8684gka40c">
-      <ColNames>name</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="275" parent="240" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="276" parent="240" name="UK_ob8kqyqqgmefl0aco34akdtpe">
-      <ColNames>email</ColNames>
-      <UnderlyingIndexName>UK_ob8kqyqqgmefl0aco34akdtpe</UnderlyingIndexName>
-    </key>
-    <key id="277" parent="240" name="UK_gj2fy3dcix7ph7k8684gka40c">
-      <ColNames>name</ColNames>
-      <UnderlyingIndexName>UK_gj2fy3dcix7ph7k8684gka40c</UnderlyingIndexName>
-    </key>
   </database-model>
 </dataSource>

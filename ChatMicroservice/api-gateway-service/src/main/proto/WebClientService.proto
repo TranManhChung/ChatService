@@ -18,6 +18,7 @@ message Message{
 message WebsocketInfo{
     string endpoint = 1;
     string topic = 2;
+    string chatCode = 3;
 }
 
 service WebClientService{

@@ -43,6 +43,7 @@ public class UIController {
         model.addAttribute("endpoint", websocketInfo.getEndpoint());
         model.addAttribute("topic", websocketInfo.getTopic());
         model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("chatCode", websocketInfo.getChatCode());
         return "chat";
     }
 
@@ -57,19 +58,6 @@ public class UIController {
         session.setAttribute("username", response.getUsername());
         return "redirect:/chat";
 
-    }
-
-
-
-}
-
-@RestController
-class Test{
-
-    @PostMapping("/storeSession")
-    public String storeSession(String token, HttpSession session){
-        session.setAttribute("user", token);
-        return "done";
     }
 
 }

@@ -2,6 +2,7 @@ package com.vng.chatservice.grpc;
 
 import com.vng.chatservice.WebSocketServiceGrpc;
 import com.vng.chatservice.WebSocketServiceOuterClass;
+import com.vng.chatservice.form.UserForm;
 import com.vng.chatservice.global.Global;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
@@ -14,12 +15,12 @@ public class WebSocketService extends WebSocketServiceGrpc.WebSocketServiceImplB
                                  StreamObserver<WebSocketServiceOuterClass.Response> responseObserver) {
 
         // Add user online
-        if(!Global.listOnlineUser.stream().anyMatch(uExist->{
-            if(uExist==request.getUsername())
+        if (!Global.listOnlineUser.stream().anyMatch(uExist -> {
+            if (uExist.getUsername() == request.getUsername())
                 return true;
             return false;
-        })){
-            Global.listOnlineUser.add(request.getUsername());
+        })) {
+            Global.listOnlineUser.add(new UserForm(request.getUsername(), request.getChatCode()));
         }
 
         WebSocketServiceOuterClass.Response response = WebSocketServiceOuterClass.Response.newBuilder()

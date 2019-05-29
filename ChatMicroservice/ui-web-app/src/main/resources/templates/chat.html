@@ -81,6 +81,7 @@
     <h1>Chat information</h1>
     <h3 id="endpoint" th:utext="${endpoint}"/>
     <h3 id="topic" th:utext="${topic}"/>
+    <h3 id="chatCode" th:utext="${chatCode}"/>
 <!--    <h3> SESSION BELOW </h3>-->
 <!--    <p hidden id="session_token" th:text="${session.user}" ></p>-->
 </div>
@@ -124,7 +125,7 @@
         $.ajax({
             type: "GET",
             contentType: "application/json",
-            url: "/messages/" + roomId,
+            url: "http://localhost:8080/messages/" + roomId,
             dataType: 'json',
             cache: false,
             timeout: 600000,
@@ -163,6 +164,7 @@
         var connectingElement = document.querySelector('#connecting');
 
         var username = null;
+        var chatCode = document.querySelector('#chatCode').innerText;
 
         function connect() {
             username = document.querySelector('#username').innerText.trim();
@@ -243,9 +245,13 @@
             var content = '<li onclick="moveToChatPage(\'' + 'publicChatRoom' + '\')">General</li>';
 
             for (var i = 0; i < message.length; i++) {
-                if (message[i] !== username) {
-                    var temp = username > message[i] ? username + message[i] : message[i] + username;
-                    content += '<li onclick="moveToChatPage(\'' + temp + '\')">' + message[i] + '</li>';
+                if (message[i].username !== username) {
+                    // var temp = username > message[i] ? username + message[i] : message[i] + username;
+                    var temp = chatCode > message[i].chatCode ? chatCode + message[i].chatCode : message[i].chatCode + chatCode;
+
+                    console.log("chat code root : " + chatCode + "/" + "user chat code : " + message[i].chatCode);
+
+                    content += '<li onclick="moveToChatPage(\'' + temp + '\')">' + message[i].username + '</li>';
                 }
             }
             $('#online-list').html(content);
