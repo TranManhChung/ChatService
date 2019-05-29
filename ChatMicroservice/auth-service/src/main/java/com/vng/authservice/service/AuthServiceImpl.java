@@ -25,38 +25,62 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
     private UserRepository userRepository;
 
     @Override
-    public void login(AuthServiceOuterClass.LoginRequest request,
+    public void login(AuthServiceOuterClass.Request request,
                       StreamObserver<AuthServiceOuterClass.Response> responseObserver) {
 
         String token = "ERROR";
-        AuthServiceOuterClass.Response tokenResponse = AuthServiceOuterClass.Response.newBuilder()
-                .setToken(token).setUsername("ERROR").build();
+        String username = "ERROR";
+
         //check username and password
         Optional<User> user = userRepository.findByEmail(request.getUsername());
         if(user.isPresent()){
             //generate token
             token = generateToken(request.getUsername(), request.getPassword());
-            tokenResponse = AuthServiceOuterClass.Response.newBuilder()
-                    .setToken(token).setUsername(user.get().getName()).build();
+            username = user.get().getName();
         }
 
+        AuthServiceOuterClass.Response tokenResponse = AuthServiceOuterClass.Response.newBuilder()
+                .setToken(AuthServiceOuterClass.Token.newBuilder().setToken(token).build()).setUsername(username).build();
         responseObserver.onNext(tokenResponse);
         responseObserver.onCompleted();
     }
 
     @Override
-    public void logout(AuthServiceOuterClass.Message request,
-                       StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+    public void logout(AuthServiceOuterClass.Request request,
+                       StreamObserver<AuthServiceOuterClass.Response> responseObserver) {
 
     }
 
     @Override
-    public void checkToken(AuthServiceOuterClass.Message request,
-                           StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+    public void checkToken(AuthServiceOuterClass.Request request,
+                           StreamObserver<AuthServiceOuterClass.Response> responseObserver) {
 
-        String isValid = decodeToken(request.getMessage()) == null ? "INVALID_TOKEN" : "VALID_TOKEN";
-        AuthServiceOuterClass.Message message = AuthServiceOuterClass.Message.newBuilder().setMessage(isValid).build();
-        responseObserver.onNext(message);
+        DecodedJWT jwt = decodeToken(request.getToken().getToken());
+        AuthServiceOuterClass.Response response = null;
+
+        if( jwt != null ){ //VALID_TOKE N
+
+            User user = userRepository.findByEmail(jwt.getClaim("username").asString()).get();
+            response = AuthServiceOuterClass.Response.newBuilder()
+                    .setToken(AuthServiceOuterClass.Token.newBuilder()
+                            .setStatus("VALID_TOKEN")
+                            .build())
+                    .setChatCode(
+                            user.getChatCode()
+                    ).setUsername(
+                            user.getName()
+                    ).build();
+
+        }else { //INVALID_TOKEN
+
+            response = AuthServiceOuterClass.Response.newBuilder()
+                    .setToken(AuthServiceOuterClass.Token.newBuilder()
+                            .setStatus("INVALID_TOKEN")
+                            .build()).build();
+
+        }
+
+        responseObserver.onNext(response);
         responseObserver.onCompleted();
 
     }

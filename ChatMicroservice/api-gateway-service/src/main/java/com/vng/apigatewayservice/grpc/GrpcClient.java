@@ -29,25 +29,27 @@ public class GrpcClient {
 
     public static AuthServiceOuterClass.Response login(String username, String password){
 
-        AuthServiceOuterClass.LoginRequest request = AuthServiceOuterClass.LoginRequest.newBuilder()
+        AuthServiceOuterClass.Request request = AuthServiceOuterClass.Request.newBuilder()
                 .setUsername(username).setPassword(password).build();
         AuthServiceOuterClass.Response response = authServiceBlockingStub.login(request);
 
         return response;
     }
 
-    public static boolean checkToken(String token){
+    public static AuthServiceOuterClass.Response checkToken(String token){
 
-        AuthServiceOuterClass.Message request = AuthServiceOuterClass.Message.newBuilder().setMessage(token).build();
-        AuthServiceOuterClass.Message response = authServiceBlockingStub.checkToken(request);
+        AuthServiceOuterClass.Request request = AuthServiceOuterClass.Request.newBuilder().setToken(
+                AuthServiceOuterClass.Token.newBuilder().setToken(token).build()).build();
+        AuthServiceOuterClass.Response response = authServiceBlockingStub.checkToken(request);
 
-        return response.getMessage().equals("VALID_TOKEN");
+        return response;
     }
 
-    public static WebSocketServiceOuterClass.WebsocketInfo getWebsocketInfo(){
+    public static WebSocketServiceOuterClass.Response getWebsocketInfo(String username, String chatCode){
 
-        WebSocketServiceOuterClass.Message request = WebSocketServiceOuterClass.Message.newBuilder().build();
-        WebSocketServiceOuterClass.WebsocketInfo response = webSocketServiceBlockingStub.getWebsocketInfo(request);
+        WebSocketServiceOuterClass.Request request = WebSocketServiceOuterClass.Request.newBuilder()
+                .setUsername(username).setChatCode(chatCode).build();
+        WebSocketServiceOuterClass.Response response = webSocketServiceBlockingStub.getWebsocketInfo(request);
 
         return response;
     }

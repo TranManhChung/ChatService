@@ -16,14 +16,14 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
         String urlPattern = request.getRequestURI().substring(request.getContextPath().length());
 
-        if( urlPattern.equals("/chat") && !GrpcClient.checkToken(request.getHeader("auth")) ){
+//        if( urlPattern.equals("/chat") && !GrpcClient.checkToken(request.getHeader("auth")) ){
 
 //            String test = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 //            JSONObject jsonObject = new JSONObject(test);
 //            GrpcClient.login(jsonObject.getString("username"), jsonObject.getString("password"));
-            response.sendRedirect("/login");
-            return false;
-        }
+//            response.sendRedirect("/login");
+//            return false;
+//        }
         return true;
     }
 }

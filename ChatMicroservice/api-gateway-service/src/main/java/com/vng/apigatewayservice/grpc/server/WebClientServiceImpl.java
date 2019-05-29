@@ -20,7 +20,7 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
         AuthServiceOuterClass.Response response = GrpcClient.login(request.getUsername(), request.getPassword());
 
         WebClientServiceOuterClass.Response tokenResponse = WebClientServiceOuterClass.Response.newBuilder()
-                .setToken(response.getToken()).setUsername(response.getUsername()).build();
+                .setToken(response.getToken().getToken()).setUsername(response.getUsername()).build();
         responseObserver.onNext(tokenResponse);
         responseObserver.onCompleted();
 
@@ -43,9 +43,10 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
                                  StreamObserver<WebClientServiceOuterClass.WebsocketInfo> responseObserver) {
 
         String endpoint = "ERROR", topic = "";
-        if(GrpcClient.checkToken(request.getMessage())){
+        AuthServiceOuterClass.Response response = GrpcClient.checkToken(request.getMessage());
+        if(response.getToken().getStatus().equals("VALID_TOKEN")){
 
-            WebSocketServiceOuterClass.WebsocketInfo websocketInfo = GrpcClient.getWebsocketInfo();
+            WebSocketServiceOuterClass.Response websocketInfo = GrpcClient.getWebsocketInfo(response.getUsername(), response.getChatCode());
             endpoint = websocketInfo.getEndpoint();
             topic = websocketInfo.getTopic();
 
