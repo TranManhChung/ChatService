@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -16,8 +18,8 @@ public class User {
     private String password;
     private String confirm;
     private String email;
-    private WebClientServiceOuterClass.RegisterRequest.Gender gender;
-    private WebClientServiceOuterClass.Date date;
+    private String gender;
+    private Date date;
 
     public String getFullname() {
         return fullname;
@@ -59,19 +61,19 @@ public class User {
         this.email = email;
     }
 
-    public WebClientServiceOuterClass.RegisterRequest.Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(WebClientServiceOuterClass.RegisterRequest.Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public WebClientServiceOuterClass.Date getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(WebClientServiceOuterClass.Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

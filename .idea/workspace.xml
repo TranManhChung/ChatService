@@ -2,13 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a533baa8-b9db-44cf-a86d-07db0b012726" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/resources/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/proto/WebSocketService.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/interceptor/AuthenticationInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/GrpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/GrpcClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/server/WebClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/server/WebClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/proto/AuthService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/proto/AuthService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/proto/WebClientService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/proto/WebClientService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/auth-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/init/DataSeedingListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/init/DataSeedingListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/proto/AuthService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/proto/AuthService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/chat-service/src/main/java/com/vng/chatservice/grpc/WebSocketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/chat-service/src/main/java/com/vng/chatservice/grpc/WebSocketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/chat-service/src/main/java/com/vng/chatservice/support/HttpHandshakeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/chat-service/src/main/java/com/vng/chatservice/support/HttpHandshakeInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/chat-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/chat-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/UiWebAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/UiWebAppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/config/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/grpc/GrpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/grpc/GrpcClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/proto/WebClientService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/proto/WebClientService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/resources/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/resources/templates/chat.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,54 +52,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/proto/AuthService.proto">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/resources/templates/register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/model/User.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/grpc/GrpcClient.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/config/WebConfig.java">
+        <entry file="file://$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/java/com/vng/apigatewayservice/ApiGatewayServiceApplication.java">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -186,271 +159,6 @@
               <item name="vng" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="apigatewayservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="api-gateway-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="proto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="api-gateway-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="api-gateway-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="chat-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="chat-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="chat-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="chat-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="chat-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="chat-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="vng" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="chat-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="vng" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="chatservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="chat-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="proto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="chat-service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="vng" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="vng" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="uiwebapp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="vng" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="uiwebapp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="vng" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="uiwebapp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="vng" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="uiwebapp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="grpc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="vng" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="uiwebapp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="proto" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="chat-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/ChatService" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ChatMicroservice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ui-web-app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="target" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -461,7 +169,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ChatMicroservice/ui-web-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -489,16 +197,18 @@
       <updated>1559032742744</updated>
       <workItem from="1559032743953" duration="391000" />
       <workItem from="1559033435329" duration="3419000" />
+      <workItem from="1559112820717" duration="51000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3810000" />
+    <option name="totallyTimeSpent" value="3861000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1029" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2524013" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25506938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -542,47 +252,13 @@
     <entry file="file://$PROJECT_DIR$/ChatMicroservice/auth-service/src/test/java/com/vng/authservice/AuthServiceApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/config/WebConfig.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/init/DataSeedingListener.java">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/proto/AuthService.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/resources/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/UiWebAppApplication.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/grpc/GrpcClient.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/resources/application.properties">
@@ -616,7 +292,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/proto/AuthService.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/resources/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChatMicroservice/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/grpc/GrpcClient.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/config/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/model/User.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChatMicroservice/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChatMicroservice/api-gateway-service/src/main/java/com/vng/apigatewayservice/ApiGatewayServiceApplication.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>

@@ -6,8 +6,9 @@ message LoginRequest{
     string password = 2;
 }
 
-message TokenResponse{
+message Response{
     string token = 1;
+    string username = 2;
 }
 
 message Message{
@@ -29,7 +30,7 @@ message RegisterRequest {
     string fullname = 1;
     string username = 2;
     string password = 3;
-    string confirm = 4;
+    string email = 4;
     enum Gender {
         MALE = 0;
         FEMALE = 1;
@@ -40,8 +41,9 @@ message RegisterRequest {
 }
 
 service WebClientService{
-    rpc login(LoginRequest) returns (TokenResponse);
+    rpc login(LoginRequest) returns (Response);
     rpc logout(Message) returns (Message);
+    rpc checkToken(Message) returns (Message);
     rpc getWebsocketInfo(Message) returns (WebsocketInfo);
     rpc register(RegisterRequest) returns (Message);
 }

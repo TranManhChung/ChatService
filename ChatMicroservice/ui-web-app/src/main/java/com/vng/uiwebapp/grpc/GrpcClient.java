@@ -3,6 +3,7 @@ package com.vng.uiwebapp.grpc;
 
 import com.vng.apigateway.WebClientServiceGrpc;
 import com.vng.apigateway.WebClientServiceOuterClass;
+import com.vng.uiwebapp.model.User;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -21,13 +22,13 @@ public class GrpcClient {
         //channel.shutdownNow();
     }
 
-    public static String login(String username, String password){
+    public static WebClientServiceOuterClass.Response login(String username, String password){
 
         WebClientServiceOuterClass.LoginRequest request = WebClientServiceOuterClass.LoginRequest.newBuilder()
                 .setUsername(username).setPassword(password).build();
-        WebClientServiceOuterClass.TokenResponse response = webClientServiceBlockingStub.login(request);
+        WebClientServiceOuterClass.Response response = webClientServiceBlockingStub.login(request);
 
-        return response.getToken();
+        return response;
     }
 
     public static void logout(){}
@@ -41,4 +42,20 @@ public class GrpcClient {
         return response;
     }
 
+    public static WebClientServiceOuterClass.Message register(User user){
+
+        WebClientServiceOuterClass.RegisterRequest request = WebClientServiceOuterClass.RegisterRequest
+                .newBuilder()
+                .setFullname(user.getFullname())
+                .setUsername(user.getUsername())
+                .setPassword(user.getPassword())
+                .setEmail(user.getEmail())
+//                .setGenderValue(0)
+//                .setBirthday(user.getDate())
+                .build();
+
+        WebClientServiceOuterClass.Message response = webClientServiceBlockingStub.register(request);
+
+        return response;
+    }
 }

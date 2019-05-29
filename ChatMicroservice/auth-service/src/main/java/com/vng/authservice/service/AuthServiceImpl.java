@@ -7,6 +7,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.sun.org.apache.xml.internal.security.algorithms.Algorithm;
 import com.vng.authservice.model.User;
 import com.vng.authservice.repository.UserRepository;
 import com.vng.security.AuthServiceGrpc;
@@ -16,6 +17,7 @@ import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
+import java.util.Optional;
 
 @GRpcService
 public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
@@ -25,17 +27,20 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
 
     @Override
     public void login(AuthServiceOuterClass.LoginRequest request,
-                      StreamObserver<AuthServiceOuterClass.TokenResponse> responseObserver) {
+                      StreamObserver<AuthServiceOuterClass.Response> responseObserver) {
 
         String token = "ERROR";
+        AuthServiceOuterClass.Response tokenResponse = AuthServiceOuterClass.Response.newBuilder()
+                .setToken(token).setUsername("ERROR").build();
         //check username and password
-        if(userRepository.findByEmail(request.getUsername()).isPresent()){
+        Optional<User> user = userRepository.findByEmail(request.getUsername());
+        if(user.isPresent()){
             //generate token
             token = generateToken(request.getUsername(), request.getPassword());
+            tokenResponse = AuthServiceOuterClass.Response.newBuilder()
+                    .setToken(token).setUsername(user.get().getName()).build();
         }
 
-        AuthServiceOuterClass.TokenResponse tokenResponse = AuthServiceOuterClass.TokenResponse.newBuilder()
-                .setToken(token).build();
         responseObserver.onNext(tokenResponse);
         responseObserver.onCompleted();
     }
@@ -104,6 +109,31 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
 
     @Override
     public void register(AuthServiceOuterClass.RegisterRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+        Optional<User> username = userRepository.findByUsername(request.getUsername());
+        Optional<User> email = userRepository.findByEmail(request.getEmail());
+        String msg = "";
 
+        if (username != null && email != null){
+            User user = new User();
+            user.setUsername(request.getUsername());
+            user.setName(request.getFullname());
+            user.setEmail(request.getEmail());
+            user.setPassword(request.getPassword());
+            user.setGender(null);
+            user.setBirthday(null);
+            user.setChatCode(null);
+
+            userRepository.save(user);
+
+            msg = "REGISTERED";
+        }
+
+        AuthServiceOuterClass.Message message = AuthServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(msg)
+                .build();
+
+        responseObserver.onNext(message);
+        responseObserver.onCompleted();
     }
 }

@@ -1,0 +1,15 @@
+syntax = "proto3";
+package com.vng.chatservice;
+
+message Message{
+    string message = 1;
+}
+
+message WebsocketInfo{
+    string endpoint = 1;
+    string topic = 2;
+}
+
+service WebSocketService{
+    rpc getWebsocketInfo(Message) returns (WebsocketInfo);
+}

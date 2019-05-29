@@ -23,11 +23,14 @@ public class HttpHandshakeInterceptor implements HandshakeInterceptor {
 
         logger.info("Call beforeHandshake");
 
-        if (request instanceof ServletServerHttpRequest) {
-            ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) request;
-            HttpSession session = servletRequest.getServletRequest().getSession();
-            attributes.put("sessionId", session.getId());
-        }
+        //Loss session
+
+        //if (request instanceof ServletServerHttpRequest) {
+        //  ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) request;
+        //  HttpSession session = servletRequest.getServletRequest().getSession();
+        //  attributes.put("sessionId", session.getId());
+        //}
+
         return true;
     }
 
