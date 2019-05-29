@@ -3,6 +3,8 @@ package com.vng.apigatewayservice.grpc.server;
 import com.vng.apigateway.WebClientServiceGrpc;
 import com.vng.apigateway.WebClientServiceOuterClass;
 import com.vng.apigatewayservice.grpc.GrpcClient;
+import com.vng.chatservice.WebSocketServiceOuterClass;
+import com.vng.security.AuthServiceOuterClass;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 
@@ -13,12 +15,12 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
 
     @Override
     public void login(WebClientServiceOuterClass.LoginRequest request,
-                      StreamObserver<WebClientServiceOuterClass.TokenResponse> responseObserver) {
+                      StreamObserver<WebClientServiceOuterClass.Response> responseObserver) {
 
-        String token = GrpcClient.login(request.getUsername(), request.getPassword());
+        AuthServiceOuterClass.Response response = GrpcClient.login(request.getUsername(), request.getPassword());
 
-        WebClientServiceOuterClass.TokenResponse tokenResponse = WebClientServiceOuterClass.TokenResponse.newBuilder()
-                .setToken(token).build();
+        WebClientServiceOuterClass.Response tokenResponse = WebClientServiceOuterClass.Response.newBuilder()
+                .setToken(response.getToken()).setUsername(response.getUsername()).build();
         responseObserver.onNext(tokenResponse);
         responseObserver.onCompleted();
 
@@ -42,9 +44,11 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
 
         String endpoint = "ERROR", topic = "";
         if(GrpcClient.checkToken(request.getMessage())){
-            //temp data
-            endpoint = "chung";
-            topic = "chung";
+
+            WebSocketServiceOuterClass.WebsocketInfo websocketInfo = GrpcClient.getWebsocketInfo();
+            endpoint = websocketInfo.getEndpoint();
+            topic = websocketInfo.getTopic();
+
         }
 
         WebClientServiceOuterClass.WebsocketInfo websocketInfo = WebClientServiceOuterClass.WebsocketInfo.newBuilder()

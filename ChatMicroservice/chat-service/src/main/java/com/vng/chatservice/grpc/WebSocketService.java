@@ -13,7 +13,7 @@ public class WebSocketService extends WebSocketServiceGrpc.WebSocketServiceImplB
                                  StreamObserver<WebSocketServiceOuterClass.WebsocketInfo> responseObserver) {
 
         WebSocketServiceOuterClass.WebsocketInfo websocketInfo = WebSocketServiceOuterClass.WebsocketInfo.newBuilder()
-                .setEndpoint("http://localhost:8080").setTopic("/topic").build();
+                .setEndpoint("http://localhost:8080/ws").setTopic("/topic").build();
         responseObserver.onNext(websocketInfo);
         responseObserver.onCompleted();
     }

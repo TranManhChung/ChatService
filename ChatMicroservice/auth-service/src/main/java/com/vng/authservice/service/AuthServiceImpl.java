@@ -16,6 +16,7 @@ import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
+import java.util.Optional;
 
 @GRpcService
 public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
@@ -25,17 +26,20 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
 
     @Override
     public void login(AuthServiceOuterClass.LoginRequest request,
-                      StreamObserver<AuthServiceOuterClass.TokenResponse> responseObserver) {
+                      StreamObserver<AuthServiceOuterClass.Response> responseObserver) {
 
         String token = "ERROR";
+        AuthServiceOuterClass.Response tokenResponse = AuthServiceOuterClass.Response.newBuilder()
+                .setToken(token).setUsername("ERROR").build();
         //check username and password
-        if(userRepository.findByEmail(request.getUsername()).isPresent()){
+        Optional<User> user = userRepository.findByEmail(request.getUsername());
+        if(user.isPresent()){
             //generate token
             token = generateToken(request.getUsername(), request.getPassword());
+            tokenResponse = AuthServiceOuterClass.Response.newBuilder()
+                    .setToken(token).setUsername(user.get().getName()).build();
         }
 
-        AuthServiceOuterClass.TokenResponse tokenResponse = AuthServiceOuterClass.TokenResponse.newBuilder()
-                .setToken(token).build();
         responseObserver.onNext(tokenResponse);
         responseObserver.onCompleted();
     }
