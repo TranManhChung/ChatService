@@ -143,7 +143,6 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-//        System.out.println(date.getDate() + "-" + (date.getMonth() + 1) + "-" + (date.getYear() + 1900));
 
         if (!user.isPresent()){
             User userToSave = new User();
