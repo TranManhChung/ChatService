@@ -35,7 +35,11 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
     @Override
     public void checkToken(WebClientServiceOuterClass.Message request,
                            StreamObserver<WebClientServiceOuterClass.Message> responseObserver) {
-
+        AuthServiceOuterClass.Response response = GrpcClient.checkToken(request.getMessage());
+        WebClientServiceOuterClass.Message message = WebClientServiceOuterClass.Message.newBuilder()
+                .setMessage(response.getToken().getStatus()).build();
+        responseObserver.onNext(message);
+        responseObserver.onCompleted();
     }
 
     @Override

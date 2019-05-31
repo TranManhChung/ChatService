@@ -5,18 +5,22 @@ import com.vng.uiwebapp.grpc.GrpcClient;
 import com.vng.uiwebapp.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class UIController {
 
+    private static final int TIME_OUT = 7 * 24 * 60 * 60;
+
     @RequestMapping(value = {"/login","/"} )
-    public String login() {
+    public String login(@CookieValue(value = "tmc", defaultValue = "BigMom") String token) {
+        if(GrpcClient.isValidToken(token)){
+            return "redirect:/chat";
+        }
         return "login";
     }
 
@@ -32,11 +36,10 @@ public class UIController {
     }
 
     @RequestMapping("/chat")
-    public String chat(Model model, HttpSession session){
+    public String chat(Model model, @CookieValue(value = "tmc" , defaultValue = "Hello World") String token,
+                       HttpSession session) {
 
-        if(session.getAttribute("user")==null)
-            return "redirect:/login";
-        WebClientServiceOuterClass.WebsocketInfo websocketInfo = GrpcClient.getWebsocketInfo(session.getAttribute("user").toString());
+        WebClientServiceOuterClass.WebsocketInfo websocketInfo = GrpcClient.getWebsocketInfo(token);
         if(websocketInfo.getEndpoint().equals("ERROR")) {
             return "redirect:/login";
         }
@@ -48,13 +51,21 @@ public class UIController {
     }
 
     @RequestMapping("/afterLogin")
-    public String redirect(User user, Model model, HttpSession session){
+    public String redirect(User user, HttpSession session, HttpServletResponse servletResponse) {
 
         WebClientServiceOuterClass.Response response = GrpcClient.login(user.getUsername(), user.getPassword());
         if(response.getToken().equals("ERROR")){
          return "redirect:/login";
         }
-        session.setAttribute("user", response.getToken());
+
+        //save token to cookie
+        Cookie cookie = new Cookie("tmc", response.getToken());
+        cookie.setMaxAge(TIME_OUT);
+        cookie.setHttpOnly(true);
+        //cookie.setSecure(true);
+        servletResponse.addCookie(cookie);
+
+        session.setAttribute("token", response.getToken());
         session.setAttribute("username", response.getUsername());
         return "redirect:/chat";
 

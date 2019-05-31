@@ -41,4 +41,15 @@ public class GrpcClient {
         return response;
     }
 
+
+    public static boolean isValidToken(String token){
+
+        WebClientServiceOuterClass.Message request = WebClientServiceOuterClass.Message.newBuilder().
+                setMessage(token).build();
+        WebClientServiceOuterClass.Message response = webClientServiceBlockingStub.checkToken(request);
+
+        return response.getMessage().equals("VALID_TOKEN");
+
+    }
+
 }
