@@ -2,11 +2,11 @@ package com.vng.authservice.service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.sun.org.apache.xml.internal.security.algorithms.Algorithm;
 import com.vng.authservice.model.User;
 import com.vng.authservice.repository.UserRepository;
 import com.vng.security.AuthServiceGrpc;
@@ -15,6 +15,8 @@ import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 
@@ -25,39 +27,62 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
     private UserRepository userRepository;
 
     @Override
-    public void login(AuthServiceOuterClass.LoginRequest request,
+    public void login(AuthServiceOuterClass.Request request,
                       StreamObserver<AuthServiceOuterClass.Response> responseObserver) {
 
         String token = "ERROR";
-        AuthServiceOuterClass.Response tokenResponse = AuthServiceOuterClass.Response.newBuilder()
-                .setToken(token).setUsername("ERROR").build();
+        String username = "ERROR";
+
         //check username and password
         Optional<User> user = userRepository.findByEmail(request.getUsername());
         if(user.isPresent()){
             //generate token
             token = generateToken(request.getUsername(), request.getPassword());
-            tokenResponse = AuthServiceOuterClass.Response.newBuilder()
-                    .setToken(token).setUsername(user.get().getName()).build();
+            username = user.get().getName();
         }
 
+        AuthServiceOuterClass.Response tokenResponse = AuthServiceOuterClass.Response.newBuilder()
+                .setToken(AuthServiceOuterClass.Token.newBuilder().setToken(token).build()).setUsername(username).build();
         responseObserver.onNext(tokenResponse);
         responseObserver.onCompleted();
     }
 
     @Override
-    public void logout(AuthServiceOuterClass.Message request,
-                       StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+    public void logout(AuthServiceOuterClass.Request request,
+                       StreamObserver<AuthServiceOuterClass.Response> responseObserver) {
 
     }
 
     @Override
-    public void checkToken(AuthServiceOuterClass.Message request,
-                           StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+    public void checkToken(AuthServiceOuterClass.Request request,
+                           StreamObserver<AuthServiceOuterClass.Response> responseObserver) {
 
-        String isValid = decodeToken(request.getMessage()) == null ? "INVALID_TOKEN" : "VALID_TOKEN";
-        AuthServiceOuterClass.Message message = AuthServiceOuterClass.Message.newBuilder().setMessage(isValid).build();
+        DecodedJWT jwt = decodeToken(request.getToken().getToken());
+        AuthServiceOuterClass.Response response = null;
 
-        responseObserver.onNext(message);
+        if( jwt != null ){ //VALID_TOKE N
+
+            User user = userRepository.findByEmail(jwt.getClaim("username").asString()).get();
+            response = AuthServiceOuterClass.Response.newBuilder()
+                    .setToken(AuthServiceOuterClass.Token.newBuilder()
+                            .setStatus("VALID_TOKEN")
+                            .build())
+                    .setChatCode(
+                            user.getChatCode()
+                    ).setUsername(
+                            user.getName()
+                    ).build();
+
+        }else { //INVALID_TOKEN
+
+            response = AuthServiceOuterClass.Response.newBuilder()
+                    .setToken(AuthServiceOuterClass.Token.newBuilder()
+                            .setStatus("INVALID_TOKEN")
+                            .build()).build();
+
+        }
+
+        responseObserver.onNext(response);
         responseObserver.onCompleted();
 
     }
@@ -108,31 +133,69 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
 
     @Override
     public void register(AuthServiceOuterClass.RegisterRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
-        Optional<User> username = userRepository.findByUsername(request.getUsername());
-        Optional<User> email = userRepository.findByEmail(request.getEmail());
+        Optional<User> user = userRepository.findByUsername(request.getUsername());
         String msg = "";
+        Date date = null;
 
-        if (username != null && email != null){
-            User user = new User();
-            user.setUsername(request.getUsername());
-            user.setName(request.getFullname());
-            user.setEmail(request.getEmail());
-            user.setPassword(request.getPassword());
-            user.setGender(null);
-            user.setBirthday(null);
-            user.setChatCode(null);
+        //format to mysql date
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getBirthday().toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+//        System.out.println(date.getDate() + "-" + (date.getMonth() + 1) + "-" + (date.getYear() + 1900));
 
-            userRepository.save(user);
+        if (!user.isPresent()){
+            User userToSave = new User();
 
-            msg = "REGISTERED";
+            userToSave.setName(request.getFullname());
+            userToSave.setUsername(request.getUsername());
+            userToSave.setPassword(request.getPassword());
+            userToSave.setEmail(request.getEmail());
+            userToSave.setGender(request.getGender());
+            userToSave.setBirthday(date);
+            userToSave.setChatCode("");
+
+            try {
+                userRepository.save(userToSave);
+                msg = "REGISTERED";
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
 
-        AuthServiceOuterClass.Message message = AuthServiceOuterClass.Message
+        AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
                 .newBuilder()
                 .setMessage(msg)
                 .build();
 
-        responseObserver.onNext(message);
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void forgot(AuthServiceOuterClass.ForgotRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+        final String fromEmail = "anvo.ht209@gmail.com";
+        final String host = "localhost";
+        User username = userRepository.findByUsername(request.getUsername()).get();
+        User email = userRepository.findByEmail(request.getEmail()).get();
+        String msg = "";
+
+        if (!username.getUsername().equals(email.getUsername())
+                || !email.getEmail().equals(username.getEmail())){
+            msg = "Your username and email is incorrect!";
+        } else {
+            String toEmail = username.getEmail() == null ? username.getEmail() : email.getEmail();
+
+
+        }
+
+        AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(msg)
+                .build();
+
+        responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
 }

@@ -1,20 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Register</title>
+    <title>Spring Boot Security Hello</title>
 </head>
 <body>
-
-<a href="https://www.facebook.com/dialog/oauth?client_id=591936887956544&
-	redirect_uri=https://localhost:8080/login-facebook">
-    Login Facebook</a>
-<a href="https://accounts.google.com/o/oauth2/auth?scope=email&
-	redirect_uri=https://localhost:8080/login-google&response_type=code
-		&client_id=612511954448-tjtulj365l7cpmq4ptgdh35qoe5poeon.apps.googleusercontent.com&approval_prompt=force">
-    Login With Gmail</a>
-
-<br/>
 <form name='register-form' th:action="@{/afterRegister}" method='POST'>
+    <!--/*@thymesVar id="message" type="ch"*/-->
+    <div th:utext="${message}" style="color: red"></div></td>
     <table>
         <tr>
             <td>Fullname:</td>
@@ -39,10 +31,10 @@
         <tr>
             <td>Gender:</td>
             <td>
-                <select>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                <select name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                 </select>
             </td>
         </tr>

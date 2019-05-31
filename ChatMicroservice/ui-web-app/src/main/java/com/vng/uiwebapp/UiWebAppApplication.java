@@ -9,4 +9,5 @@ public class UiWebAppApplication {
     public static void main(String[] args) {
         SpringApplication.run(UiWebAppApplication.class, args);
     }
+
 }

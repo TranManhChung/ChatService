@@ -29,27 +29,56 @@ public class GrpcClient {
 
     public static AuthServiceOuterClass.Response login(String username, String password){
 
-        AuthServiceOuterClass.LoginRequest request = AuthServiceOuterClass.LoginRequest.newBuilder()
+        AuthServiceOuterClass.Request request = AuthServiceOuterClass.Request.newBuilder()
                 .setUsername(username).setPassword(password).build();
         AuthServiceOuterClass.Response response = authServiceBlockingStub.login(request);
 
         return response;
     }
 
-    public static boolean checkToken(String token){
+    public static AuthServiceOuterClass.Response checkToken(String token){
 
-        AuthServiceOuterClass.Message request = AuthServiceOuterClass.Message.newBuilder().setMessage(token).build();
-        AuthServiceOuterClass.Message response = authServiceBlockingStub.checkToken(request);
-
-        return response.getMessage().equals("VALID_TOKEN");
-    }
-
-    public static WebSocketServiceOuterClass.WebsocketInfo getWebsocketInfo(){
-
-        WebSocketServiceOuterClass.Message request = WebSocketServiceOuterClass.Message.newBuilder().build();
-        WebSocketServiceOuterClass.WebsocketInfo response = webSocketServiceBlockingStub.getWebsocketInfo(request);
+        AuthServiceOuterClass.Request request = AuthServiceOuterClass.Request.newBuilder().setToken(
+                AuthServiceOuterClass.Token.newBuilder().setToken(token).build()).build();
+        AuthServiceOuterClass.Response response = authServiceBlockingStub.checkToken(request);
 
         return response;
     }
 
+    public static WebSocketServiceOuterClass.Response getWebsocketInfo(String username, String chatCode){
+
+        WebSocketServiceOuterClass.Request request = WebSocketServiceOuterClass.Request.newBuilder()
+                .setUsername(username).setChatCode(chatCode).build();
+        WebSocketServiceOuterClass.Response response = webSocketServiceBlockingStub.getWebsocketInfo(request);
+
+        return response;
+    }
+
+    public static AuthServiceOuterClass.Message register(WebClientServiceOuterClass.RegisterRequest request) {
+        AuthServiceOuterClass.RegisterRequest registerRequest = AuthServiceOuterClass.RegisterRequest
+                .newBuilder()
+                .setFullname(request.getFullname())
+                .setUsername(request.getUsername())
+                .setPassword(request.getPassword())
+                .setEmail(request.getEmail())
+                .setGender(request.getGender())
+                .setBirthday(request.getBirthday())
+                .build();
+
+        AuthServiceOuterClass.Message response = authServiceBlockingStub.register(registerRequest);
+
+        return response;
+    }
+
+    public static AuthServiceOuterClass.Message forgot(WebClientServiceOuterClass.ForgotRequest request){
+        AuthServiceOuterClass.ForgotRequest forgotRequest = AuthServiceOuterClass.ForgotRequest
+                .newBuilder()
+                .setUsername(request.getUsername())
+                .setEmail(request.getEmail())
+                .build();
+
+        AuthServiceOuterClass.Message response = authServiceBlockingStub.forgot(forgotRequest);
+
+        return response;
+    }
 }

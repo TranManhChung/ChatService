@@ -20,7 +20,7 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
         AuthServiceOuterClass.Response response = GrpcClient.login(request.getUsername(), request.getPassword());
 
         WebClientServiceOuterClass.Response tokenResponse = WebClientServiceOuterClass.Response.newBuilder()
-                .setToken(response.getToken()).setUsername(response.getUsername()).build();
+                .setToken(response.getToken().getToken()).setUsername(response.getUsername()).build();
         responseObserver.onNext(tokenResponse);
         responseObserver.onCompleted();
 
@@ -42,20 +42,47 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
     public void getWebsocketInfo(WebClientServiceOuterClass.Message request,
                                  StreamObserver<WebClientServiceOuterClass.WebsocketInfo> responseObserver) {
 
-        String endpoint = "ERROR", topic = "";
-        if(GrpcClient.checkToken(request.getMessage())){
+        String endpoint = "ERROR", topic = "", chatCode = "";
+        AuthServiceOuterClass.Response response = GrpcClient.checkToken(request.getMessage());
+        if(response.getToken().getStatus().equals("VALID_TOKEN")){
 
-            WebSocketServiceOuterClass.WebsocketInfo websocketInfo = GrpcClient.getWebsocketInfo();
+            WebSocketServiceOuterClass.Response websocketInfo = GrpcClient.getWebsocketInfo(response.getUsername(), response.getChatCode());
             endpoint = websocketInfo.getEndpoint();
             topic = websocketInfo.getTopic();
+            chatCode = response.getChatCode();
 
         }
 
         WebClientServiceOuterClass.WebsocketInfo websocketInfo = WebClientServiceOuterClass.WebsocketInfo.newBuilder()
-                .setEndpoint(endpoint).setTopic(topic).build();
+                .setEndpoint(endpoint).setTopic(topic).setChatCode(chatCode).build();
         responseObserver.onNext(websocketInfo);
         responseObserver.onCompleted();
 
     }
 
+    @Override
+    public void register(WebClientServiceOuterClass.RegisterRequest request, StreamObserver<WebClientServiceOuterClass.Message> responseObserver) {
+        AuthServiceOuterClass.Message message = GrpcClient.register(request);
+
+        WebClientServiceOuterClass.Message response = WebClientServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(message.getMessage())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void forgot(WebClientServiceOuterClass.ForgotRequest request, StreamObserver<WebClientServiceOuterClass.Message> responseObserver) {
+        AuthServiceOuterClass.Message message = GrpcClient.forgot(request);
+
+        WebClientServiceOuterClass.Message response = WebClientServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(message.getMessage())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
 }

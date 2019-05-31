@@ -5,9 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/ChatMicroservice.iml" filepath="$PROJECT_DIR$/.idea/ChatMicroservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/api-gateway-service/api-gateway-service.iml" filepath="$PROJECT_DIR$/api-gateway-service/api-gateway-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/auth-service/auth-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/auth-service/auth-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/chat-service/chat-service.iml" filepath="$PROJECT_DIR$/chat-service/chat-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ui-web-app/ui-web-app.iml" filepath="$PROJECT_DIR$/ui-web-app/ui-web-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ui-web-app/ui-web-app.iml" filepath="$PROJECT_DIR$/ui-web-app/ui-web-app.iml" />
     </modules>
   </component>

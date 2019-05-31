@@ -6,14 +6,16 @@ import com.vng.uiwebapp.model.User;
 import io.grpc.Grpc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Controller
 public class UIController {
@@ -46,6 +48,7 @@ public class UIController {
         model.addAttribute("endpoint", websocketInfo.getEndpoint());
         model.addAttribute("topic", websocketInfo.getTopic());
         model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("chatCode", websocketInfo.getChatCode());
         return "chat";
     }
 
@@ -59,37 +62,46 @@ public class UIController {
         session.setAttribute("user", response.getToken());
         session.setAttribute("username", response.getUsername());
         return "redirect:/chat";
+
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    @RequestMapping("/register")
     public String register(){
-        return "register";
+        return "/register";
     }
 
     @RequestMapping("/afterRegister")
-    public String rediect(User user){
-
+    public String register(User user, Model model){
         if (!user.getPassword().equals(user.getConfirm())){
             return "/register";
         }
 
         WebClientServiceOuterClass.Message message = GrpcClient.register(user);
 
-        if (message.getMessage().equals("REGISTERED")){
+        if (message.getMessage().equals("REGISTERED")) {
             return "/login";
         }
 
-        return "redirect:/403";
-    }
-}
+        model.addAttribute("message", "Your username is already in use!");
 
-@RestController
-class Test{
-
-    @PostMapping("/storeSession")
-    public String storeSession(String token, HttpSession session){
-        session.setAttribute("user", token);
-        return "done";
+        return "/register";
     }
 
+    @RequestMapping("/forgot")
+    public String forgot(){
+        return "forgot";
+    }
+
+    @RequestMapping("/afterForgotSubmit")
+    public String forgot(User user){
+        if (user.getUsername() == null || user.getEmail() == null){
+            return "/forgot";
+        }
+
+        WebClientServiceOuterClass.Message message = GrpcClient.forgot(user);
+
+        System.out.println(message);
+
+        return "/login";
+    }
 }

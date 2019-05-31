@@ -2,10 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8acce1d-67b0-440d-95ae-c7bf3d5db6e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ba81d49a-ff88-4602-90aa-bcc02f7f67e5/storage_v2/_src_/schema/balance.3G7I6w.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ba81d49a-ff88-4602-90aa-bcc02f7f67e5/storage_v2/_src_/schema/chat.WJMuAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d7944413-7fae-4530-9c71-fcce0b6afb11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui-web-app/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308fe37-778c-437b-8672-43c25a96c7d4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ba81d49a-ff88-4602-90aa-bcc02f7f67e5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ba81d49a-ff88-4602-90aa-bcc02f7f67e5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/GrpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/GrpcClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/server/WebClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/server/WebClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway-service/src/main/proto/AuthService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway-service/src/main/proto/AuthService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway-service/src/main/proto/WebClientService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway-service/src/main/proto/WebClientService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/init/DataSeedingListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/init/DataSeedingListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/proto/AuthService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/proto/AuthService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/grpc/GrpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/grpc/GrpcClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-web-app/src/main/proto/WebClientService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/ui-web-app/src/main/proto/WebClientService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-web-app/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-web-app/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/chat-service/target/" />
     <ignored path="$PROJECT_DIR$/auth-service/target/" />
@@ -42,19 +65,29 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="balance: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="chat: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="security: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="security: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chat@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chat@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chat@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="chat: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -67,29 +100,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="157" selection-start-line="157" selection-end-line="157" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://ba81d49a-ff88-4602-90aa-bcc02f7f67e5/schema/security/table/user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auth-service/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="58" column="40" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/UiWebAppApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/resources/templates/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+            <state relative-caret-position="310">
+              <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+              <folding>
+                <element signature="e#2804#2805#0" expanded="true" />
+                <element signature="e#2835#2836#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/resources/templates/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/resources/templates/chat.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -99,19 +169,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mys</find>
-      <find>forTarget</find>
-      <find>my</find>
-      <find>annotation.Id;</find>
-      <find>grpc</find>
-      <find>http://localhost</find>
       <find>http</find>
       <find>id=&quot;username</find>
       <find>checkConnection</find>
@@ -119,8 +183,29 @@
       <find>SockJS</find>
       <find>sockjs</find>
       <find>onClick</find>
-      <find>ajax</find>
       <find>storeSession</find>
+      <find>onMessageReceived_2</find>
+      <find>username&quot;</find>
+      <find>Global.listOnlineUser</find>
+      <find>.getWebsocketInfo</find>
+      <find>jpa</find>
+      <find>AuthService.proto</find>
+      <find>username</find>
+      <find>move</find>
+      <find>#endpoin</find>
+      <find>#end</find>
+      <find>ajax</find>
+      <find>find</find>
+      <find>lom</find>
+      <find>RegisterRequest</find>
+      <find>getBi</find>
+      <find>getB</find>
+      <find>getGe</find>
+      <find>getGend</find>
+      <find>getGender</find>
+      <find>spr</find>
+      <find>springframework</find>
+      <find>topic</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/auth-service</dir>
@@ -132,11 +217,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/AuthServiceImpl.java" />
-        <option value="$PROJECT_DIR$/api-gateway-service/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/rest/config/WebMvcConfig.java" />
-        <option value="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/rest/interceptor/AuthenticationInterceptor.java" />
-        <option value="$PROJECT_DIR$/ui-web-app/pom.xml" />
         <option value="$PROJECT_DIR$/ui-web-app/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/rest/controller/MainController.java" />
         <option value="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/model/Message.java" />
@@ -155,28 +236,38 @@
         <option value="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/config/WebSocketConfig.java" />
         <option value="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/init/DataSeedingListener.java" />
         <option value="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/model/User.java" />
-        <option value="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/repository/UserRepository.java" />
-        <option value="$PROJECT_DIR$/chat-service/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/grpc/WebSocketService.java" />
+        <option value="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/interceptor/AuthenticationInterceptor.java" />
+        <option value="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/support/HttpHandshakeInterceptor.java" />
         <option value="$PROJECT_DIR$/api-gateway-service/pom.xml" />
+        <option value="$PROJECT_DIR$/api-gateway-service/src/main/proto/WebSocketService.proto" />
+        <option value="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/rest/interceptor/AuthenticationInterceptor.java" />
+        <option value="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/global/Global.java" />
+        <option value="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/grpc/WebSocketService.java" />
+        <option value="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/form/UserForm.java" />
+        <option value="$PROJECT_DIR$/chat-service/src/main/proto/WebSocketService.proto" />
+        <option value="$PROJECT_DIR$/chat-service/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/ui-web-app/src/main/resources/templates/chat.html" />
+        <option value="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/config/WebConfig.java" />
+        <option value="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/init/DataSeedingListener.java" />
+        <option value="$PROJECT_DIR$/ui-web-app/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/api-gateway-service/target/generated-sources/protobuf/java/com/vng/apigateway/WebClientServiceOuterClass.java" />
+        <option value="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/model/User.java" />
+        <option value="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/model/User.java" />
+        <option value="$PROJECT_DIR$/ui-web-app/src/main/resources/templates/forgot.html" />
+        <option value="$PROJECT_DIR$/ui-web-app/src/main/proto/WebClientService.proto" />
         <option value="$PROJECT_DIR$/auth-service/src/main/proto/AuthService.proto" />
         <option value="$PROJECT_DIR$/api-gateway-service/src/main/proto/AuthService.proto" />
-        <option value="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/model/User.java" />
-        <option value="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/init/DataSeedingListener.java" />
-        <option value="$PROJECT_DIR$/auth-service/pom.xml" />
-        <option value="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/GrpcClient.java" />
         <option value="$PROJECT_DIR$/api-gateway-service/src/main/proto/WebClientService.proto" />
-        <option value="$PROJECT_DIR$/ui-web-app/src/main/proto/WebClientService.proto" />
-        <option value="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/server/WebClientServiceImpl.java" />
         <option value="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/grpc/GrpcClient.java" />
-        <option value="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/config/WebConfig.java" />
-        <option value="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/interceptor/AuthenticationInterceptor.java" />
-        <option value="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java" />
-        <option value="$PROJECT_DIR$/ui-web-app/src/main/resources/templates/chat.html" />
+        <option value="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/GrpcClient.java" />
+        <option value="$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/server/WebClientServiceImpl.java" />
+        <option value="$PROJECT_DIR$/ui-web-app/pom.xml" />
+        <option value="$PROJECT_DIR$/auth-service/pom.xml" />
+        <option value="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java" />
-        <option value="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/support/HttpHandshakeInterceptor.java" />
-        <option value="$PROJECT_DIR$/ui-web-app/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/ui-web-app/src/main/resources/templates/register.html" />
+        <option value="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java" />
       </list>
     </option>
   </component>
@@ -201,13 +292,163 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
               <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="apigatewayservice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="apigatewayservice" type="462c0819:PsiDirectoryNode" />
+              <item name="grpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="apigatewayservice" type="462c0819:PsiDirectoryNode" />
+              <item name="grpc" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="apigatewayservice" type="462c0819:PsiDirectoryNode" />
+              <item name="rest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="authservice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="authservice" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="authservice" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
@@ -244,11 +485,49 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="uiwebapp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="uiwebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="uiwebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="grpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
+              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -265,6 +544,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
@@ -278,10 +561,10 @@
       <recent name="com.vng.authservice" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ui-web-app/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/api-gateway-service/src/main/proto" />
       <recent name="$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice" />
       <recent name="$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp" />
-      <recent name="$PROJECT_DIR$/ui-web-app/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/ui-web-app/src/main/proto" />
     </key>
   </component>
@@ -301,8 +584,9 @@
         </RuleState>
       </list>
     </option>
+    <option name="contentProportion" value="0.2562297" />
   </component>
-  <component name="RunManager" selected="Spring Boot.UiWebAppApplication">
+  <component name="RunManager" selected="Spring Boot.ChatServiceApplication">
     <configuration name="ApiGatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="api-gateway-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.vng.apigatewayservice.ApiGatewayServiceApplication" />
@@ -345,13 +629,21 @@
       <workItem from="1558944233257" duration="4190000" />
       <workItem from="1558948497751" duration="3558000" />
       <workItem from="1559007227335" duration="23294000" />
-      <workItem from="1559094288518" duration="1382000" />
-      <workItem from="1559120219240" duration="500000" />
+      <workItem from="1559094288518" duration="8613000" />
+      <workItem from="1559102946225" duration="13171000" />
+      <workItem from="1559124479253" duration="1109000" />
+      <workItem from="1559183978104" duration="5080000" />
+      <workItem from="1559189419868" duration="1880000" />
+      <workItem from="1559191535164" duration="5623000" />
+      <workItem from="1559200595256" duration="155000" />
+      <workItem from="1559203905908" duration="2397000" />
+      <workItem from="1559206327992" duration="4164000" />
+      <workItem from="1559271132191" duration="1127000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32924000" />
+    <option name="totallyTimeSpent" value="74361000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -363,10 +655,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1029" extended-state="6" />
+    <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49848023" visible="true" weight="0.13927428" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49848023" visible="true" weight="0.1819178" />
       <window_info id="Structure" order="1" sideWeight="0.5007587" side_tool="true" weight="0.1840796" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -380,24 +672,24 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32960325" />
-      <window_info anchor="bottom" id="Spring" order="7" weight="0.32960325" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.31965443" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3282365" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32925585" />
-      <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" />
-      <window_info anchor="bottom" id="Database Console" order="15" weight="0.32925585" />
-      <window_info anchor="bottom" id="Run Dashboard" order="16" weight="0.32110092" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32937366" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32937366" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50027394" side_tool="true" weight="0.32721382" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32721382" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32829374" />
+      <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32937366" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32937366" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32925585" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="15" sideWeight="0.49972603" visible="true" weight="0.39524838" />
+      <window_info anchor="bottom" id="Terminal" order="16" sideWeight="0.49972603" weight="0.32721382" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.18352681" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.18465753" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
@@ -410,16 +702,22 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java</url>
-          <line>70</line>
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java</url>
+          <line>59</line>
           <properties />
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java</url>
-          <line>30</line>
+          <url>file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java</url>
+          <line>47</line>
           <properties />
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/controller/MessageController.java</url>
+          <line>22</line>
+          <properties />
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -427,117 +725,175 @@
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>request.getSession()</expression-string>
+        <expression-string>response.getUsername()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getMessage()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jwt.getClaim(&quot;username&quot;).asString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jwt.getClaim()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jwt.getClaim(&quot;username&quot;).toString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jwt.getClaim(&quot;username&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jwt.getPayload()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>isValid</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getUsername()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>userRepository.findByEmail(request.getUsername())</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/config/WebSecurityConfig.java" />
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/config/WebConfig.java" />
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/model/Role.java">
+    <entry file="file://$PROJECT_DIR$/ui-web-app/target/generated-sources/protobuf/grpc-java/com/vng/apigateway/WebClientServiceGrpc.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="176">
+          <caret line="399" column="65" selection-start-line="399" selection-start-column="65" selection-end-line="399" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/config/WebSocketConfig.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.19/tomcat-embed-websocket-9.0.19.jar!/org/apache/tomcat/websocket/server/WsFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        <state relative-caret-position="378">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE.jar!/org/springframework/web/servlet/config/annotation/InterceptorRegistry.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/interceptor/AuthenticationInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/repositories/UserRepository.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.5.RELEASE/spring-boot-2.1.5.RELEASE.jar!/org/springframework/boot/SpringApplication.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/init/DataSeedingListener.java" />
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="60" lean-forward="true" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/repositories/MessageRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ba81d49a-ff88-4602-90aa-bcc02f7f67e5/schema/balance/table/message">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="64" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        <state relative-caret-position="10020">
+          <caret line="756" lean-forward="true" selection-start-line="756" selection-end-line="756" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/config/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding>
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1039#1040#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/proto/WebSocketService.proto">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://ba81d49a-ff88-4602-90aa-bcc02f7f67e5/schema/chat/table/user" />
+    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/UiWebAppApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/init/DataSeedingListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/ChatServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/grpc/WebSocketService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        <state relative-caret-position="30">
+          <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat-service/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d7944413-7fae-4530-9c71-fcce0b6afb11/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/rest/interceptor/AuthenticationInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/rest/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/rest/service/DemoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/ApiGatewayServiceApplication.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -546,41 +902,193 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway-service/pom.xml">
+    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/rest/config/WebMvcConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+        <state relative-caret-position="75">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/proto/WebSocketService.proto">
+    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/rest/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="24" />
+        <state relative-caret-position="120">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/AuthServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding>
+            <element signature="e#256#257#0" expanded="true" />
+            <element signature="e#329#330#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+        <state relative-caret-position="383">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-web-app/target/generated-sources/protobuf/java/com/vng/apigateway/WebClientServiceOuterClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="2981" column="37" selection-start-line="2981" selection-start-column="28" selection-end-line="2981" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/auth-service/target/generated-sources/protobuf/java/com/vng/security/AuthServiceOuterClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="2707" column="33" selection-start-line="2707" selection-start-column="28" selection-end-line="2707" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway-service/target/generated-sources/protobuf/java/com/vng/apigateway/WebClientServiceOuterClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="2981" column="35" selection-start-line="2981" selection-start-column="28" selection-end-line="2981" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway-service/target/generated-sources/protobuf/java/com/vng/security/AuthServiceOuterClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="2707" column="37" selection-start-line="2707" selection-start-column="28" selection-end-line="2707" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="28" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/resources/templates/forgot.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/proto/WebClientService.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/auth-service/src/main/proto/AuthService.proto">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="338">
+          <caret line="33" selection-start-line="33" selection-end-line="36" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/proto/AuthService.proto">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        <state relative-caret-position="383">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/proto/WebClientService.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/GrpcClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/server/WebClientServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="85" column="39" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/grpc/GrpcClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-web-app/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/lognet/grpc-spring-boot-starter/3.0.0/grpc-spring-boot-starter-3.0.0.jar!/org/lognet/springboot/grpc/GRpcService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.5.RELEASE/spring-boot-autoconfigure-2.1.5.RELEASE.jar!/org/springframework/boot/autoconfigure/web/ServerProperties.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+          <folding>
+            <element signature="e#2311#2312#0" expanded="true" />
+            <element signature="e#2343#2344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/lognet/grpc-spring-boot-starter/3.0.0/grpc-spring-boot-starter-3.0.0.jar!/org/lognet/springboot/grpc/autoconfigure/GRpcServerProperties.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+          <folding>
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#927#928#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.5.RELEASE/spring-boot-autoconfigure-2.1.5.RELEASE.jar!/org/springframework/boot/autoconfigure/mail/MailProperties.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
+          <folding>
+            <element signature="e#1878#1879#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -591,220 +1099,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth-service/pom.xml">
+    <entry file="file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="22" column="76" selection-start-line="22" selection-start-column="76" selection-end-line="22" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/GrpcClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+        <state relative-caret-position="196">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/proto/WebClientService.proto">
+    <entry file="file://$PROJECT_DIR$/auth-service/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        <state relative-caret-position="15">
+          <caret line="58" column="40" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/proto/WebClientService.proto">
+    <entry file="file://$PROJECT_DIR$/auth-service/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="600">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/grpc/server/WebClientServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="87" selection-start-line="21" selection-start-column="87" selection-end-line="21" selection-end-column="87" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/resources/templates/403.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
+    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/resources/templates/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="https://github.com/anvh2/ChatService-WebSocket.git">
-      <provider selected="true" editor-type-id="httpFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/ChatServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="120">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
           <folding>
-            <element signature="e#256#257#0" expanded="true" />
-            <element signature="e#329#330#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/config/WebConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="498" selection-start-line="498" selection-end-line="498" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE.jar!/org/springframework/web/servlet/HandlerExecutionChain.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway-service/src/main/java/com/vng/apigatewayservice/rest/config/WebMvcConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui-web-app/target/generated-sources/protobuf/grpc-java/com/vng/apigateway/WebClientServiceGrpc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="318" column="13" selection-start-line="318" selection-start-column="13" selection-end-line="318" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/grpc/GrpcClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="27" column="84" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/grpc/grpc-core/1.15.1/grpc-core-1.15.1.jar!/io/grpc/internal/ServerImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="355" selection-start-line="355" selection-end-line="355" />
-          <folding>
-            <element signature="e#0#26839#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/grpc/grpc-core/1.15.1/grpc-core-1.15.1.jar!/io/grpc/internal/ContextRunnable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/AuthServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/grpc/grpc-core/1.15.1/grpc-core-1.15.1.jar!/io/grpc/internal/SerializingExecutor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="75" column="50" lean-forward="true" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/service/AuthServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/resources/templates/chat.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth-service/src/main/java/com/vng/authservice/init/DataSeedingListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/interceptor/AuthenticationInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat-service/src/main/java/com/vng/chatservice/support/HttpHandshakeInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="37" column="46" lean-forward="true" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
+        <state relative-caret-position="98">
+          <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/controller/UIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui-web-app/src/main/java/com/vng/uiwebapp/UiWebAppApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        <state relative-caret-position="310">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+          <folding>
+            <element signature="e#2804#2805#0" expanded="true" />
+            <element signature="e#2835#2836#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ui-web-app</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

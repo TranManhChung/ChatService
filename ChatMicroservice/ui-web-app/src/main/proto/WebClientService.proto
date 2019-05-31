@@ -18,12 +18,7 @@ message Message{
 message WebsocketInfo{
     string endpoint = 1;
     string topic = 2;
-}
-
-message Date {
-    int32 day = 1;
-    int32 month = 2;
-    int32 year = 3;
+    string chatCode = 3;
 }
 
 message RegisterRequest {
@@ -31,13 +26,13 @@ message RegisterRequest {
     string username = 2;
     string password = 3;
     string email = 4;
-    enum Gender {
-        MALE = 0;
-        FEMALE = 1;
-        OTHER = 2;
-    }
-    Gender gender = 5;
-    Date birthday = 6;
+    string gender = 5;
+    string birthday = 6;
+}
+
+message ForgotRequest {
+    string username = 1;
+    string email = 2;
 }
 
 service WebClientService{
@@ -46,4 +41,5 @@ service WebClientService{
     rpc checkToken(Message) returns (Message);
     rpc getWebsocketInfo(Message) returns (WebsocketInfo);
     rpc register(RegisterRequest) returns (Message);
+    rpc forgot(ForgotRequest) returns (Message);
 }

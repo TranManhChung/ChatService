@@ -42,7 +42,8 @@ public class GrpcClient {
         return response;
     }
 
-    public static WebClientServiceOuterClass.Message register(User user){
+    public static WebClientServiceOuterClass.Message register(User user) {
+
 
         WebClientServiceOuterClass.RegisterRequest request = WebClientServiceOuterClass.RegisterRequest
                 .newBuilder()
@@ -50,12 +51,24 @@ public class GrpcClient {
                 .setUsername(user.getUsername())
                 .setPassword(user.getPassword())
                 .setEmail(user.getEmail())
-//                .setGenderValue(0)
-//                .setBirthday(user.getDate())
+                .setGender(user.getGender())
+                .setBirthday(user.getBirthday())
                 .build();
 
-        WebClientServiceOuterClass.Message response = webClientServiceBlockingStub.register(request);
+        WebClientServiceOuterClass.Message message = webClientServiceBlockingStub.register(request);
 
-        return response;
+        return message;
+    }
+
+    public static WebClientServiceOuterClass.Message forgot(User user){
+        WebClientServiceOuterClass.ForgotRequest request = WebClientServiceOuterClass.ForgotRequest
+                .newBuilder()
+                .setUsername(user.getUsername())
+                .setEmail(user.getEmail())
+                .build();
+
+        WebClientServiceOuterClass.Message message = webClientServiceBlockingStub.forgot(request);
+
+        return message;
     }
 }

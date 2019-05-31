@@ -1,15 +1,21 @@
 syntax = "proto3";
 package com.vng.security;
 
-message LoginRequest{
+message Request{
     string username = 1;
     string password = 2;
+    Token token = 3;
 }
 
-message Date {
-    int32 day = 1;
-    int32 month = 2;
-    int32 year = 3;
+message Response{
+    string username = 1;
+    string chatCode = 2;
+    Token token = 3;
+}
+
+message Token{
+    string token = 1;
+    string status = 2;
 }
 
 message RegisterRequest {
@@ -17,26 +23,23 @@ message RegisterRequest {
     string username = 2;
     string password = 3;
     string email = 4;
-    enum Gender {
-        MALE = 0;
-        FEMALE = 1;
-        OTHER = 2;
-    }
-    Gender gender = 5;
-    Date birthday = 6;
-}
-message Response{
-    string token = 1;
-    string username = 2;
+    string gender = 5;
+    string birthday = 6;
 }
 
-message Message{
+message Message {
     string message = 1;
 }
 
+message ForgotRequest {
+    string username = 1;
+    string email = 2;
+}
+
 service AuthService{
-    rpc login(LoginRequest) returns (Response);
-    rpc logout(Message) returns (Message);
-    rpc checkToken(Message) returns (Message);
+    rpc login(Request) returns (Response);
+    rpc logout(Request) returns (Response);
+    rpc checkToken(Request) returns (Response);
     rpc register(RegisterRequest) returns (Message);
+    rpc forgot(ForgotRequest) returns (Message);
 }
