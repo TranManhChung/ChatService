@@ -30,8 +30,14 @@ public class UIController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
+    public String logout(HttpSession session, HttpServletResponse response) {
+
         session.invalidate();
+        Cookie cookie = new Cookie("tmc", null);
+        cookie.setMaxAge(0);
+        cookie.setHttpOnly(true);
+        response.addCookie(cookie);
+
         return "redirect:/";
     }
 
