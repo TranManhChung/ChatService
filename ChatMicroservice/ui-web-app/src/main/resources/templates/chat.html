@@ -64,9 +64,27 @@
                             <div class="input-message">
                                 <input type="text" id="message" autocomplete="off"
                                        placeholder="Type a message..."/>
+
+
+
                                 <button type="submit">Send</button>
                             </div>
                         </form>
+                    </div>
+                    <div>
+                        <h2>File Upload</h2>
+
+                        Select file
+
+                        <input type="file" id="filename" />
+
+                        <br>
+
+                        <input type="button" value="Connect" onclick="connectChatServer()" />
+
+                        <br>
+
+                        <input type="button" value="Upload" onclick="sendFile()" />
                     </div>
                 </th>
                 <th>
@@ -94,6 +112,8 @@
     var roomId = 'publicChatRoom'; //default room
     var stompClient = null;
     var listConnected = [];
+    var messageFileInput = document.querySelector('#filename').files[0];
+
 
     //kiem tra connect da ton tai hay chua
     function checkConnection(roomIdTemp) {
@@ -160,7 +180,8 @@
 
         var messageForm = document.querySelector('#messageForm');
         var messageInput = document.querySelector('#message');
-        var messageArea = document.querySelector('#messageArea');
+
+    var messageArea = document.querySelector('#messageArea');
         var connectingElement = document.querySelector('#connecting');
 
         var username = null;
@@ -194,7 +215,31 @@
         }
 
         function sendMessage(event) {
+
             var messageContent = messageInput.value.trim();
+            console.log("sendMessage")
+            console.log(messageFileInput)
+
+            var messageFileInput = document.getElementById('filename').files[0];
+            if (messageFileInput) {
+
+                var r = new FileReader();
+                r.onload = function (e) {
+                    var contents = e.target.result;
+                    alert("name: " + messageFileInput.name + "n"
+                        + "type: " + messageFileInput.type + "n"
+                        + "size: " + messageFileInput.size + " bytesn"
+                        + "starts with: " + contents
+                    );
+                }
+                console.log(r)
+                console.log(messageFileInput)
+
+                r.readAsText(messageFileInput);
+                console.log(r)
+
+                console.log(messageFileInput)
+            }
             if (messageContent && stompClient) {
                 var chatMessage = {
                     sender: username,
