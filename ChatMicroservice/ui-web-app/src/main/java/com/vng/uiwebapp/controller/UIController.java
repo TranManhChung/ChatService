@@ -6,10 +6,7 @@ import com.vng.uiwebapp.model.User;
 import io.grpc.Grpc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;
@@ -55,7 +52,7 @@ public class UIController {
     @RequestMapping("/afterLogin")
     public String redirect(User user, Model model, HttpSession session){
 
-        WebClientServiceOuterClass.Response response = GrpcClient.login(user.getUsername(), user.getPassword());
+        WebClientServiceOuterClass.Response response = GrpcClient.login(user.getEmail(), user.getPassword());
         if(response.getToken().equals("ERROR")){
          return "redirect:/login";
         }
@@ -64,7 +61,7 @@ public class UIController {
         return "redirect:/chat";
 
     }
-
+    
     @RequestMapping("/register")
     public String register(){
         return "/register";
@@ -72,19 +69,23 @@ public class UIController {
 
     @RequestMapping("/afterRegister")
     public String register(User user, Model model){
-        if (!user.getPassword().equals(user.getConfirm())){
-            return "/register";
-        }
-
         WebClientServiceOuterClass.Message message = GrpcClient.register(user);
 
         if (message.getMessage().equals("REGISTERED")) {
             return "/login";
         }
 
-        model.addAttribute("message", "Your username is already in use!");
+        model.addAttribute("message", "Your email is already in use!");
 
         return "/register";
+    }
+
+    @RequestMapping(value = "confirmregister", method = RequestMethod.GET)
+    public String confirmRegister(@RequestParam("token") String token){
+        System.out.println("Token: " + token);
+        GrpcClient.confirm(token);
+
+        return "/login";
     }
 
     @RequestMapping("/forgot")
@@ -93,14 +94,40 @@ public class UIController {
     }
 
     @RequestMapping("/afterForgotSubmit")
-    public String forgot(User user){
-        if (user.getUsername() == null || user.getEmail() == null){
+    public String forgot(User user, Model model){
+        if (user.getEmail() == null){
+            model.addAttribute("message", "Email is incorrect");
+
             return "/forgot";
         }
 
-        WebClientServiceOuterClass.Message message = GrpcClient.forgot(user);
+       WebClientServiceOuterClass.Message message = GrpcClient.forgot(user.getEmail());
 
         System.out.println(message);
+
+        model.addAttribute("message", message);
+
+        return "/forgot";
+    }
+
+    String token = "";
+
+    @RequestMapping(value = "confirmchangepassword", method = RequestMethod.GET)
+    public String confirmChange(@RequestParam("token") String token){
+        this.token = token;
+
+        return "/changepass";
+    }
+
+    @RequestMapping("/afterSubmitChangePass")
+    public String changePass(User user, Model model){
+        if (!user.getPassword().equals(user.getConfirm())) {
+            model.addAttribute("message", "Your password is incorrect");
+
+            return "/changepass";
+        }
+
+        GrpcClient.changePass(token, user.getPassword());
 
         return "/login";
     }

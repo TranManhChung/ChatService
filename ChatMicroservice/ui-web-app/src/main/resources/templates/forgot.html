@@ -4,15 +4,12 @@
     <title>Spring Boot Security Hello</title>
 </head>
 <body>
+
+<div>Enter username or email: </div>
 <form name='register-form' th:action="@{/afterForgotSubmit}" method='POST'>
+    <!--/*@thymesVar id="messages" type="ch"*/-->
+    <div th:utext="${messages}" style="color: red;"></div>
     <table>
-        <tr>
-            <td>Enter username or email: </td>
-        </tr>
-        <tr>
-            <td>Username</td>
-            <td><input type='text' name='username' value=''></td>
-        </tr>
         <tr>
             <td>Email</td>
             <td><input type='email' name='email' value=''></td>

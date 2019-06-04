@@ -13,7 +13,6 @@ import java.util.Date;
 @Setter
 public class User {
     private String fullname;
-    private String username;
     private String password;
     private String confirm;
     private String email;

@@ -74,8 +74,34 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
     }
 
     @Override
+    public void confirm(WebClientServiceOuterClass.Message request, StreamObserver<WebClientServiceOuterClass.Message> responseObserver) {
+        AuthServiceOuterClass.Message message = GrpcClient.confirm(request);
+
+        WebClientServiceOuterClass.Message response = WebClientServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(message.getMessage())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
     public void forgot(WebClientServiceOuterClass.ForgotRequest request, StreamObserver<WebClientServiceOuterClass.Message> responseObserver) {
         AuthServiceOuterClass.Message message = GrpcClient.forgot(request);
+
+        WebClientServiceOuterClass.Message response = WebClientServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(message.getMessage())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void changePass(WebClientServiceOuterClass.ChangeRequest request, StreamObserver<WebClientServiceOuterClass.Message> responseObserver) {
+        AuthServiceOuterClass.Message message = GrpcClient.changePass(request);
 
         WebClientServiceOuterClass.Message response = WebClientServiceOuterClass.Message
                 .newBuilder()

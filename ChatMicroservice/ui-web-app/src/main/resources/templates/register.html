@@ -9,12 +9,12 @@
     <div th:utext="${message}" style="color: red"></div></td>
     <table>
         <tr>
-            <td>Fullname:</td>
+            <td>Full Name:</td>
             <td><input type='text' name='fullname' value=''></td>
         </tr>
         <tr>
-            <td>Username:</td>
-            <td><input type='text' name='username' value=''></td>
+            <td>Email:</td>
+            <td><input type='email' name='email' value=''></td>
         </tr>
         <tr>
             <td>Password:</td>
@@ -23,10 +23,6 @@
         <tr>
             <td>Confirm:</td>
             <td><input type='password' name='confirm' /></td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td><input type='email' name='email' value=''></td>
         </tr>
         <tr>
             <td>Gender:</td>
@@ -47,5 +43,42 @@
         </tr>
     </table>
 </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"/>
+<script>
+    $(function () {
+        $.validate({
+            rules:
+                {
+                    password: "required",
+                    confirm: "required",
+                    birthday: "required",
+                    fullname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+            messages:{
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            password: {
+                required: " Please enter password"
+            },
+            confirm: {
+                required: " Please enter password"
+            },
+            birthday: {
+                required: " Please enter birthdate"
+            },
+            email: {
+                required: ' Please enter email',
+                email: ' Please enter valid email'
+            }
+        });
+    });
+</script>
 </body>
 </html>

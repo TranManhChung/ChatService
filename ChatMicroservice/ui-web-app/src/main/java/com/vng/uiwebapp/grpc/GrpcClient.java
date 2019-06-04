@@ -48,7 +48,6 @@ public class GrpcClient {
         WebClientServiceOuterClass.RegisterRequest request = WebClientServiceOuterClass.RegisterRequest
                 .newBuilder()
                 .setFullname(user.getFullname())
-                .setUsername(user.getUsername())
                 .setPassword(user.getPassword())
                 .setEmail(user.getEmail())
                 .setGender(user.getGender())
@@ -60,14 +59,36 @@ public class GrpcClient {
         return message;
     }
 
-    public static WebClientServiceOuterClass.Message forgot(User user){
+    public static WebClientServiceOuterClass.Message confirm(String message){
+        WebClientServiceOuterClass.Message request = WebClientServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(message)
+                .build();
+
+        WebClientServiceOuterClass.Message response = webClientServiceBlockingStub.confirm(request);
+
+        return response;
+    }
+
+    public static WebClientServiceOuterClass.Message forgot(String email){
         WebClientServiceOuterClass.ForgotRequest request = WebClientServiceOuterClass.ForgotRequest
                 .newBuilder()
-                .setUsername(user.getUsername())
-                .setEmail(user.getEmail())
+                .setEmail(email)
                 .build();
 
         WebClientServiceOuterClass.Message message = webClientServiceBlockingStub.forgot(request);
+
+        return message;
+    }
+
+    public static WebClientServiceOuterClass.Message changePass(String token, String newPass){
+        WebClientServiceOuterClass.ChangeRequest request = WebClientServiceOuterClass.ChangeRequest
+                .newBuilder()
+                .setToken(token)
+                .setNewpass(newPass)
+                .build();
+
+        WebClientServiceOuterClass.Message message = webClientServiceBlockingStub.changePass(request);
 
         return message;
     }

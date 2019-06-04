@@ -7,6 +7,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.vng.authservice.mail.SendMail;
 import com.vng.authservice.model.User;
 import com.vng.authservice.repository.UserRepository;
 import com.vng.security.AuthServiceGrpc;
@@ -14,7 +15,12 @@ import com.vng.security.AuthServiceOuterClass;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -35,7 +41,11 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
 
         //check username and password
         Optional<User> user = userRepository.findByEmail(request.getUsername());
-        if(user.isPresent()){
+
+        if(user.isPresent()
+                && user.get().isValid()
+                && user.get().getPassword().equals(request.getPassword())){
+
             //generate token
             token = generateToken(request.getUsername(), request.getPassword());
             username = user.get().getName();
@@ -61,8 +71,8 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         AuthServiceOuterClass.Response response = null;
 
         if( jwt != null ){ //VALID_TOKE N
-
             User user = userRepository.findByEmail(jwt.getClaim("username").asString()).get();
+
             response = AuthServiceOuterClass.Response.newBuilder()
                     .setToken(AuthServiceOuterClass.Token.newBuilder()
                             .setStatus("VALID_TOKEN")
@@ -133,7 +143,7 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
 
     @Override
     public void register(AuthServiceOuterClass.RegisterRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
-        Optional<User> user = userRepository.findByUsername(request.getUsername());
+        Optional<User> user = userRepository.findByEmail(request.getEmail());
         String msg = "";
         Date date = null;
 
@@ -148,16 +158,26 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
             User userToSave = new User();
 
             userToSave.setName(request.getFullname());
-            userToSave.setUsername(request.getUsername());
             userToSave.setPassword(request.getPassword());
             userToSave.setEmail(request.getEmail());
             userToSave.setGender(request.getGender());
             userToSave.setBirthday(date);
-            userToSave.setChatCode("");
+            userToSave.setChatCode(request.getFullname());
+            userToSave.setValid(false);
 
             try {
                 userRepository.save(userToSave);
                 msg = "REGISTERED";
+
+                new Thread(()->{
+                    String token = generateToken(request.getEmail(), request.getPassword());
+
+                    try {
+                        sendHtmlTemplate(request.getEmail(),token, 1);
+                    } catch (MessagingException e) {
+                        e.printStackTrace();
+                    }
+                }).start();
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -173,20 +193,123 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
     }
 
     @Override
-    public void forgot(AuthServiceOuterClass.ForgotRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
-        final String fromEmail = "anvo.ht209@gmail.com";
-        final String host = "localhost";
-        User username = userRepository.findByUsername(request.getUsername()).get();
-        User email = userRepository.findByEmail(request.getEmail()).get();
+    public void confirm(AuthServiceOuterClass.Message request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+        DecodedJWT jwt = decodeToken(request.getMessage());
         String msg = "";
 
-        if (!username.getUsername().equals(email.getUsername())
-                || !email.getEmail().equals(username.getEmail())){
-            msg = "Your username and email is incorrect!";
+        if (jwt != null){
+            String email = jwt.getClaim("username").asString();
+            User user = userRepository.findByEmail(email).get();
+
+            user.setValid(true);
+
+            try {
+                userRepository.save(user);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
+            msg = "CONFIRM";
+        }
+
+        AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(msg)
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Autowired
+    public JavaMailSender emailSender;
+
+    public boolean sendHtmlTemplate(String mail, String token, int type) throws MessagingException {
+        MimeMessage message = emailSender.createMimeMessage();
+        boolean mutilpart = true;
+        MimeMessageHelper helper = new MimeMessageHelper(message, mutilpart, "UTF-8");
+        String html = "";
+
+        if (type == 1){
+            String link = "localhost:8086/confirmregister?token=" + token;
+            html = "<div><a href='mailto:" + mail + "' target='_blank'>" + mail + "</a><br>" +
+                    "\t\t\t\t\t\t\t\t- Your account: <a href='mailto:" + mail + "' target='_blank'> " + mail + "</a><br>\n" +
+                    "\t\t\t\t\t\t\t\t- Please click <a href='http://" + link + "'>here</a> to confirm register for account <a href='mailto:" + mail + "' target='_blank'>" + mail + "</a>:<br>\n" +
+                    "\t\t\t\t\t\t\t\t- If you don't request, please ignore this mail<br>\n" +
+                    "\t\t\t\t\t\t\t\t<br><br>\n" +
+                    "\t\t\t\t\t\t\t\t\n" +
+                    "\t\t\t\t\t\t\t\t- Don't reply this mail.<br>\n" +
+                    "</div>";
+        } else if (type == 2) {
+            String link = "localhost:8086/confirmchangepassword?token=" + token;
+            html = "<div><a href='mailto:" + mail + "' target='_blank'>" + mail + "</a><br>" +
+                    "\t\t\t\t\t\t\t\t- Your account: <a href='mailto:" + mail + "' target='_blank'> " + mail + "</a><br>\n" +
+                    "\t\t\t\t\t\t\t\t- Please click <a href='http://" + link + "'>here</a> to change your password<a href='mailto:" + mail + "' target='_blank'>" + mail + "</a>:<br>\n" +
+                    "\t\t\t\t\t\t\t\t- If you don't request, please ignore this mail<br>\n" +
+                    "\t\t\t\t\t\t\t\t<br><br>\n" +
+                    "\t\t\t\t\t\t\t\t\n" +
+                    "\t\t\t\t\t\t\t\t- Don't reply this mail.<br>\n" +
+                    "</div>";
+        }
+
+        message.setContent(html, "text/html");
+        helper.setTo(mail);
+        helper.setSubject("Confirm Register");
+
+        emailSender.send(message);
+        return true;
+    }
+
+    @Override
+    public void forgot(AuthServiceOuterClass.ForgotRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+        Optional<User> user = userRepository.findByEmail(request.getEmail());
+        String msg = "";
+
+        if (!user.isPresent()) {
+            msg = "Your email is incorrect!";
         } else {
-            String toEmail = username.getEmail() == null ? username.getEmail() : email.getEmail();
+            new Thread(()->{
+                String token = generateToken(user.get().getEmail(), user.get().getPassword());
 
+                try {
+                    sendHtmlTemplate(request.getEmail(),token, 2);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+            }).start();
 
+            msg = "Please check your email!";
+        }
+
+        AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(msg)
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void changePass(AuthServiceOuterClass.ChangeRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+        DecodedJWT jwt = decodeToken(request.getToken());
+        String msg = "";
+
+        if (jwt != null){
+            String email = jwt.getClaim("username").asString();
+            String newPass = request.getNewpass();
+
+            User user = userRepository.findByEmail(email).get();
+
+            user.setPassword(newPass);
+
+            try {
+                userRepository.save(user);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
+            msg = "Your password is changed";
         }
 
         AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message

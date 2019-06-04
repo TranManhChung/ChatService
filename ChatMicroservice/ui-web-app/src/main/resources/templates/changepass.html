@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Password</title>
+</head>
+<body>
+<div>Change password: </div>
+<form name='change-pass-form' th:action="@{/afterSubmitChangePass}" method='POST'>
+    <table>
+<!--        <tr>-->
+<!--            <td>Email: </td>-->
+<!--            <td><input type='email' name='email' readonly th:utext="${email}"></td>-->
+<!--        </tr>-->
+        <tr>
+            <td>Password: </td>
+            <td><input type='password' name='password' value=''></td>
+        </tr>
+        <tr>
+            <td>Confirm: </td>
+            <td><input type='password' name='confirm' value=''></td>
+        </tr>
+        <tr>
+            <td><input name="submit" type="submit" value="submit" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -23,9 +23,9 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
         user.setPassword("user");
         user.setChatCode("user"); //trung voi email
         user.setName("luffy");
-        user.setUsername("user");
         user.setGender("");
         user.setBirthday(null);
+        user.setValid(true);
         userRepository.save(user);
 
         // Member account
@@ -34,9 +34,9 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
         user.setPassword("admin");
         user.setChatCode("admin"); //trung voi email
         user.setName("naruto");
-        user.setUsername("admin");
         user.setGender("");
         user.setBirthday(null);
+        user.setValid(true);
         userRepository.save(user);
     }
 

@@ -20,7 +20,6 @@ message Token{
 
 message RegisterRequest {
     string fullname = 1;
-    string username = 2;
     string password = 3;
     string email = 4;
     string gender = 5;
@@ -32,8 +31,12 @@ message Message {
 }
 
 message ForgotRequest {
-    string username = 1;
-    string email = 2;
+    string email = 1;
+}
+
+message ChangeRequest {
+    string token = 1;
+    string newpass = 2;
 }
 
 service AuthService{
@@ -41,5 +44,7 @@ service AuthService{
     rpc logout(Request) returns (Response);
     rpc checkToken(Request) returns (Response);
     rpc register(RegisterRequest) returns (Message);
+    rpc confirm(Message) returns (Message);
     rpc forgot(ForgotRequest) returns (Message);
+    rpc changePass(ChangeRequest) returns (Message);
 }
