@@ -36,6 +36,14 @@ public class GrpcClient {
         return response;
     }
 
+    public static AuthServiceOuterClass.Response loginWithGoogle(String code){
+
+        AuthServiceOuterClass.Request request = AuthServiceOuterClass.Request.newBuilder()
+                .setToken(AuthServiceOuterClass.Token.newBuilder().setToken(code).build()).build();
+        AuthServiceOuterClass.Response response = authServiceBlockingStub.loginWithGoogle(request);
+        return response;
+    }
+
     public static AuthServiceOuterClass.Response checkToken(String token){
 
         AuthServiceOuterClass.Request request = AuthServiceOuterClass.Request.newBuilder().setToken(

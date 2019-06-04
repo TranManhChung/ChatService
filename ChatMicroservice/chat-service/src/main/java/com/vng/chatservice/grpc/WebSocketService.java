@@ -16,7 +16,7 @@ public class WebSocketService extends WebSocketServiceGrpc.WebSocketServiceImplB
 
         // Add user online
         if (!Global.listOnlineUser.stream().anyMatch(uExist -> {
-            if (uExist.getUsername() == request.getUsername())
+            if (uExist.getUsername().equals(request.getUsername()))
                 return true;
             return false;
         })) {

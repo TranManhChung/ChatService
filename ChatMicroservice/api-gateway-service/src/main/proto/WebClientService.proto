@@ -47,4 +47,5 @@ service WebClientService{
     rpc confirm(Message) returns (Message);
     rpc forgot(ForgotRequest) returns (Message);
     rpc changePass(ChangeRequest) returns (Message);
+    rpc checkGoogleLogin(Message) returns (Response);
 }

@@ -43,6 +43,7 @@ service AuthService{
     rpc login(Request) returns (Response);
     rpc logout(Request) returns (Response);
     rpc checkToken(Request) returns (Response);
+    rpc loginWithGoogle(Request) returns (Response);
     rpc register(RegisterRequest) returns (Message);
     rpc confirm(Message) returns (Message);
     rpc forgot(ForgotRequest) returns (Message);

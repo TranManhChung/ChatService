@@ -35,7 +35,11 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
     @Override
     public void checkToken(WebClientServiceOuterClass.Message request,
                            StreamObserver<WebClientServiceOuterClass.Message> responseObserver) {
-
+        AuthServiceOuterClass.Response response = GrpcClient.checkToken(request.getMessage());
+        WebClientServiceOuterClass.Message message = WebClientServiceOuterClass.Message.newBuilder()
+                .setMessage(response.getToken().getStatus()).build();
+        responseObserver.onNext(message);
+        responseObserver.onCompleted();
     }
 
     @Override
@@ -58,6 +62,17 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
         responseObserver.onNext(websocketInfo);
         responseObserver.onCompleted();
 
+    }
+
+    @Override
+    public void checkGoogleLogin(WebClientServiceOuterClass.Message request,
+                                 StreamObserver<WebClientServiceOuterClass.Response> responseObserver) {
+
+        AuthServiceOuterClass.Response response = GrpcClient.loginWithGoogle(request.getMessage());
+        WebClientServiceOuterClass.Response tokenResponse = WebClientServiceOuterClass.Response.newBuilder()
+                .setToken(response.getToken().getToken()).setUsername(response.getUsername()).build();
+        responseObserver.onNext(tokenResponse);
+        responseObserver.onCompleted();
     }
 
     @Override

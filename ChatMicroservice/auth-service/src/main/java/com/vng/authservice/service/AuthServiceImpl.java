@@ -7,7 +7,8 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.vng.authservice.mail.SendMail;
+import com.vng.authservice.google.GooglePojo;
+import com.vng.authservice.google.GoogleUtils;
 import com.vng.authservice.model.User;
 import com.vng.authservice.repository.UserRepository;
 import com.vng.security.AuthServiceGrpc;
@@ -15,7 +16,6 @@ import com.vng.security.AuthServiceOuterClass;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
@@ -23,11 +23,15 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Optional;
 
 @GRpcService
 public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
+
+    @Autowired
+    private GoogleUtils googleUtils;
 
     @Autowired
     private UserRepository userRepository;
@@ -95,6 +99,32 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onNext(response);
         responseObserver.onCompleted();
 
+    }
+
+    @Override
+    public void loginWithGoogle(AuthServiceOuterClass.Request request,
+                                StreamObserver<AuthServiceOuterClass.Response> responseObserver) {
+
+        String accessToken;
+        GooglePojo googlePojo = null;
+        try {
+            accessToken = googleUtils.getToken(request.getToken().getToken());
+            googlePojo = googleUtils.getUserInfo(accessToken);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!userRepository.findByEmail(googlePojo.getEmail()).isPresent()) {
+            userRepository.save(new User(googlePojo.getEmail(), googlePojo.getEmail(), googlePojo.getEmail(), googlePojo.getEmail().split("@")[0], true));
+        }
+        //generate token
+        String token = generateToken(googlePojo.getEmail(), googlePojo.getEmail());
+        String username = googlePojo.getEmail();
+
+        AuthServiceOuterClass.Response tokenResponse = AuthServiceOuterClass.Response.newBuilder()
+                .setToken(AuthServiceOuterClass.Token.newBuilder().setToken(token).build()).setUsername(username).build();
+        responseObserver.onNext(tokenResponse);
+        responseObserver.onCompleted();
     }
 
     private String issuer = "auth0";

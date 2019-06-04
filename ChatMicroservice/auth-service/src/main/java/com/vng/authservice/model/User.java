@@ -1,6 +1,7 @@
 package com.vng.authservice.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "user")
+@NoArgsConstructor
 @Getter
 @Setter
 public class User {
@@ -37,4 +39,13 @@ public class User {
 
     @Column(name = "isvalid")
     private boolean isValid;
+
+    public User(String name, String email, String password, String chatCode, boolean isValid){
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.chatCode = chatCode;
+        this.isValid = isValid;
+    }
+
 }

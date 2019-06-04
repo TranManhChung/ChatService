@@ -32,7 +32,12 @@ public class WebSocketEventListener {
 
         if(username != null) {
             logger.info("User Disconnected : " + username);
-            Global.listOnlineUser.remove(username);
+            for( int i=0 ; i<Global.listOnlineUser.size() ; i++ ){
+                if(Global.listOnlineUser.get(i).getUsername().equals(username)){
+                    Global.listOnlineUser.remove(i);
+                    break;
+                }
+            }
             messagingTemplate.convertAndSend("/topic/onlineList", Global.listOnlineUser);
 
             //ChatMessage chatMessage = new ChatMessage();

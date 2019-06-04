@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -25,6 +26,15 @@ public class User {
 
     @Column(name = "chat_code")
     private String chatCode;
+
+    @Column(name = "gender")
+    private String gender;
+
+    @Column(name = "birthday")
+    private Date birthday;
+
+    @Column(name = "isvalid")
+    private boolean isValid;
 
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),

@@ -5,20 +5,20 @@
 </head>
 <body>
 
-	<a href="https://www.facebook.com/dialog/oauth?client_id=591936887956544&
-	redirect_uri=https://localhost:8080/login-facebook">
-		Login Facebook</a>
-	<a href="https://accounts.google.com/o/oauth2/auth?scope=email&
-	redirect_uri=https://localhost:8080/login-google&response_type=code
+<!--	<a href="https://www.facebook.com/dialog/oauth?client_id=591936887956544&-->
+<!--	redirect_uri=https://localhost:8080/login-facebook">-->
+<!--		Login Facebook</a>-->
+<a href="https://accounts.google.com/o/oauth2/auth?scope=email&
+	redirect_uri=http://localhost:8086/login-google&response_type=code
 		&client_id=612511954448-tjtulj365l7cpmq4ptgdh35qoe5poeon.apps.googleusercontent.com&approval_prompt=force">
-		Login With Gmail</a>
+	Login With Gmail</a>
 
 	<br/>
 	<form name='login-form' th:action="@{/afterLogin}" method='POST'>
 		<table>
 			<tr>
 				<td>Username:</td>
-				<td><input type='text' name='username' value=''></td>
+				<td><input type='email' name='email' value=''></td>
 			</tr>
 			<tr>
 				<td>Password:</td>

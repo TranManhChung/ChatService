@@ -27,7 +27,6 @@ public class GrpcClient {
         WebClientServiceOuterClass.LoginRequest request = WebClientServiceOuterClass.LoginRequest.newBuilder()
                 .setUsername(username).setPassword(password).build();
         WebClientServiceOuterClass.Response response = webClientServiceBlockingStub.login(request);
-
         return response;
     }
 
@@ -38,10 +37,26 @@ public class GrpcClient {
         WebClientServiceOuterClass.Message request = WebClientServiceOuterClass.Message.newBuilder().
                 setMessage(token).build();
         WebClientServiceOuterClass.WebsocketInfo response = webClientServiceBlockingStub.getWebsocketInfo(request);
-
         return response;
     }
 
+
+    public static boolean isValidToken(String token){
+
+        WebClientServiceOuterClass.Message request = WebClientServiceOuterClass.Message.newBuilder().
+                setMessage(token).build();
+        WebClientServiceOuterClass.Message response = webClientServiceBlockingStub.checkToken(request);
+        return response.getMessage().equals("VALID_TOKEN");
+
+    }
+
+    public static WebClientServiceOuterClass.Response checkGoogleLogin(String code){
+
+        WebClientServiceOuterClass.Message request = WebClientServiceOuterClass.Message.newBuilder().
+                setMessage(code).build();
+        WebClientServiceOuterClass.Response response = webClientServiceBlockingStub.checkGoogleLogin(request);
+        return response;
+    }
     public static WebClientServiceOuterClass.Message register(User user) {
 
 

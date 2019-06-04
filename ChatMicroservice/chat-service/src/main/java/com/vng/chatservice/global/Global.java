@@ -9,7 +9,6 @@ import java.util.Map;
 
 public class Global {
 
-//    public static List<String> listOnlineUser = new ArrayList<>();
     public static List<UserForm> listOnlineUser = new ArrayList<>();
 
 }
