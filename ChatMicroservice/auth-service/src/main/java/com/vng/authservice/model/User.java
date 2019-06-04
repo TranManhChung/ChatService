@@ -1,12 +1,14 @@
 package com.vng.authservice.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
+@NoArgsConstructor
 @Getter
 @Setter
 public class User {
@@ -27,5 +29,12 @@ public class User {
 
     @Column(name = "chat_code")
     private String chatCode;
+
+    public User(String name, String email, String password, String chatCode){
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.chatCode = chatCode;
+    }
 
 }

@@ -26,4 +26,5 @@ service WebClientService{
     rpc logout(Message) returns (Message);
     rpc checkToken(Message) returns (Message);
     rpc getWebsocketInfo(Message) returns (WebsocketInfo);
+    rpc checkGoogleLogin(Message) returns (Response);
 }

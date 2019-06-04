@@ -18,19 +18,11 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
     public void onApplicationEvent(ContextRefreshedEvent arg0) {
 
         // Member account
-        User user = new User();
-        user.setEmail("user");
-        user.setPassword("user");
-        user.setChatCode("user"); //trung voi email
-        user.setName("luffy");
+        User user = new User("luffy","user","user", "user");
         userRepository.save(user);
 
         // Member account
-        user = new User();
-        user.setEmail("admin");
-        user.setPassword("admin");
-        user.setChatCode("admin"); //trung voi email
-        user.setName("naruto");
+        user = new User("naruto","admin","admin","admin");
         userRepository.save(user);
     }
 

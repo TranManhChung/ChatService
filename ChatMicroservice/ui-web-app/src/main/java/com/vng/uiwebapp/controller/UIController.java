@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -51,7 +52,7 @@ public class UIController {
         }
         model.addAttribute("endpoint", websocketInfo.getEndpoint());
         model.addAttribute("topic", websocketInfo.getTopic());
-        model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("username", session.getAttribute("username"))    ;
         model.addAttribute("chatCode", websocketInfo.getChatCode());
         return "chat";
     }
@@ -63,18 +64,34 @@ public class UIController {
         if(response.getToken().equals("ERROR")){
          return "redirect:/login";
         }
-
-        //save token to cookie
-        Cookie cookie = new Cookie("tmc", response.getToken());
-        cookie.setMaxAge(TIME_OUT);
-        cookie.setHttpOnly(true);
-        //cookie.setSecure(true);
-        servletResponse.addCookie(cookie);
-
-        session.setAttribute("token", response.getToken());
-        session.setAttribute("username", response.getUsername());
+        servletResponse.addCookie(addSessionAndCookie(response.getUsername(),response.getToken(), session));
         return "redirect:/chat";
 
     }
 
+    @RequestMapping("/login-google")
+    public String loginGoogle(HttpServletRequest request, HttpSession session, HttpServletResponse servletResponse) {
+        String code = request.getParameter("code");
+
+        if (code == null || code.isEmpty()) {
+            return "redirect:/403";
+        }
+        //check request at here
+        WebClientServiceOuterClass.Response response = GrpcClient.checkGoogleLogin(code);
+        servletResponse.addCookie(addSessionAndCookie(response.getUsername(),response.getToken(),session));
+        return "redirect:/chat";
+    }
+
+    public static Cookie addSessionAndCookie(String username ,String token, HttpSession session){
+        //save token to cookie
+        Cookie cookie = new Cookie("tmc", token);
+        cookie.setMaxAge(TIME_OUT);
+        cookie.setHttpOnly(true);
+        //cookie.setSecure(true);
+
+        session.setAttribute("token", token);
+        session.setAttribute("username", username);
+
+        return cookie;
+    }
 }

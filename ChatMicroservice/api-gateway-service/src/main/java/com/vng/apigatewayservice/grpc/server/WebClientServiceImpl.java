@@ -64,4 +64,15 @@ public class WebClientServiceImpl extends WebClientServiceGrpc.WebClientServiceI
 
     }
 
+    @Override
+    public void checkGoogleLogin(WebClientServiceOuterClass.Message request,
+                                 StreamObserver<WebClientServiceOuterClass.Response> responseObserver) {
+
+        AuthServiceOuterClass.Response response = GrpcClient.loginWithGoogle(request.getMessage());
+        WebClientServiceOuterClass.Response tokenResponse = WebClientServiceOuterClass.Response.newBuilder()
+                .setToken(response.getToken().getToken()).setUsername(response.getUsername()).build();
+        responseObserver.onNext(tokenResponse);
+        responseObserver.onCompleted();
+    }
+
 }
