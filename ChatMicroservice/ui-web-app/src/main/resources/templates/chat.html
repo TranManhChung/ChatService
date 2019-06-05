@@ -217,29 +217,19 @@
         function sendMessage(event) {
 
             var messageContent = messageInput.value.trim();
-            console.log("sendMessage")
-            console.log(messageFileInput)
-
             var messageFileInput = document.getElementById('filename').files[0];
+
+
+            var contents=''
             if (messageFileInput) {
-
                 var r = new FileReader();
+                r.readAsArrayBuffer(messageFileInput)
                 r.onload = function (e) {
-                    var contents = e.target.result;
-                    alert("name: " + messageFileInput.name + "n"
-                        + "type: " + messageFileInput.type + "n"
-                        + "size: " + messageFileInput.size + " bytesn"
-                        + "starts with: " + contents
-                    );
+                     contents = e.target.result;
+                     console.log(contents)
                 }
-                console.log(r)
-                console.log(messageFileInput)
-
-                r.readAsText(messageFileInput);
-                console.log(r)
-
-                console.log(messageFileInput)
             }
+
             if (messageContent && stompClient) {
                 var chatMessage = {
                     sender: username,
@@ -272,6 +262,8 @@
                     var usernameText = document.createTextNode(message.sender);
                     usernameElement.appendChild(usernameText);
                     messageElement.appendChild(usernameElement);
+                    console.log(messageElement)
+
                 }
 
                 var textElement = document.createElement('span');
