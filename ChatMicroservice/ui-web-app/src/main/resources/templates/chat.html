@@ -75,11 +75,18 @@
                                 <button type="submit">Send</button>
                             </div>
                         </form>
+
+                        <div>
+                            <p>Receipt</p>
+                            <div id="messages" class="messages"></div>
+
+                        </div>
                     </div>
                 </th>
                 <th>
                     <ul id="online-list" data-role="listview"></ul>
                 </th>
+
             </tr>
         </table>
 
@@ -102,6 +109,7 @@
     var roomId = 'publicChatRoom'; //default room
     var stompClient = null;
     var listConnected = [];
+    const messageWindow = document.getElementById("messages");
 
     //kiem tra connect da ton tai hay chua
     function checkConnection(roomIdTemp) {
@@ -166,6 +174,8 @@
         });
     }
 
+
+
         var messageForm = document.querySelector('#messageForm');
         var messageInput = document.querySelector('#message');
         var messageArea = document.querySelector('#messageArea');
@@ -186,6 +196,32 @@
         // Connect to WebSocket Server.
         connect();
         var ws=new WebSocket('ws://localhost:8080/binary')
+    ws.binaryType = "arraybuffer";
+
+    ws.onopen = function (event) {
+        addMessageToWindow("Connected");
+    };
+
+    ws.onmessage = function (event) {
+            console.log("onmessage")
+        if (event.data instanceof ArrayBuffer) {
+            addMessageToWindow('Got Image:');
+            addImageToWindow(event.data);
+        } else {
+            addMessageToWindow(`Got Message: ${event.data}`);
+        }
+    };
+
+
+    function addMessageToWindow(message) {
+        messageWindow.innerHTML += `<div>${message}</div>`
+    }
+
+    function addImageToWindow(image) {
+        let url = URL.createObjectURL(new Blob([image]));
+        messageWindow.innerHTML += `<img src="${url}"/>`
+    }
+
         function onConnected() {
             // Subscribe to the Public Topic
             checkConnection('publicChatRoom');
@@ -214,11 +250,8 @@
             if (messageFileInput) {
                 var r = new FileReader();
                 r.readAsArrayBuffer(messageFileInput)
-                console.log(roomId.slice(1, -1))
-                console.log(roomId)
                 r.onload = await function (e) {
                     contents = e.target.result;
-                    // console.log(contents)
                     var chatMessage = {
                         sender: username,
                         content: {},
@@ -246,6 +279,8 @@
         }
 
         function onMessageReceived_1(payload) {
+            console.log(payload.body)
+         console.log("onMessageReceived_1")
             var message = JSON.parse(payload.body);
 
             if (message.roomId == roomId) {
@@ -278,7 +313,10 @@
         }
 
         function onMessageReceived_2(payload) {
+         console.log("onMessageReceived_2")
             var message = JSON.parse(payload.body);
+
+
             var content = '<li onclick="moveToChatPage(\'' + 'publicChatRoom' + '\')">General</li>';
 
             for (var i = 0; i < message.length; i++) {

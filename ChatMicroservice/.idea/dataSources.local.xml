@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="@localhost" uuid="74b28d4c-7518-4843-a240-6beaa1c461e1">
-      <database-info product="MySQL" version="5.7.26-0ubuntu0.18.04.1" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.15 (Revision: 79a4336f140499bd22dd07f02b708e163844e3d5)" dbms="MYSQL" exact-version="5.7.26" exact-driver-version="8.0">
-        <extra-name-characters>#@</extra-name-characters>
-        <identifier-quote-string>`</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+    <data-source name="MySQL - chat@localhost" uuid="1609042e-0df7-40a1-96a9-492dea8f6f04">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <introspection-schemas>*:@</introspection-schemas>
     </data-source>
   </component>
 </project>

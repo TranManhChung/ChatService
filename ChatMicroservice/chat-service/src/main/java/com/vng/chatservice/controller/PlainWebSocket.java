@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.BinaryWebSocketHandler;
 
@@ -22,10 +23,8 @@ import javax.websocket.OnMessage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.Blob;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.sql.SQLException;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @Controller
@@ -71,13 +70,15 @@ public class PlainWebSocket extends BinaryWebSocketHandler {
                 b[i]= message.getPayload().array()[i];
             }
             Blob blob = new SerialBlob(b );
-            System.out.println(blob);
-            System.out.println(room.isPresent());
-            System.out.println(messageRepository);
+
             if(room.isPresent()){
                 Repository.messageRepository.save(new Message("",jsonObject.get("sender").toString(),room.get(),blob));
             }
-            //messagingTemplate.convertAndSend("/topic/" + jsonObject.get("roomId").toString(), jsonObject.get("content").toString());
+
+            session.sendMessage(message);
+
+
+            Repository.messagingTemplate.convertAndSend("/topic/" + roomId, message);
 
         }else {
             String re="";
