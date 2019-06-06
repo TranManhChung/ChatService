@@ -1,5 +1,6 @@
 package com.vng.chatservice.controller;
 
+import com.vng.chatservice.cache.Repository;
 import com.vng.chatservice.global.Global;
 import com.vng.chatservice.model.ChatMessage;
 import com.vng.chatservice.model.Message;
@@ -27,29 +28,40 @@ public class WebSocketController {
     @Autowired
     private MessageRepository messageRepository;
 
+
+
     @MessageMapping("/chat.sendMessage")
     public void sendMessage(@Payload ChatMessage chatMessage) {
-
+        System.out.println(roomRepository);
         Optional<Room> room = roomRepository.findByIdRoom(chatMessage.getRoomId());
         if(room.isPresent()){
-            messageRepository.save(new Message(chatMessage.getContent(),chatMessage.getSender(),room.get()));
+            messageRepository.save(new Message(chatMessage.getContent(),chatMessage.getSender(),room.get(),null));
         }
         messagingTemplate.convertAndSend("/topic/" + chatMessage.getRoomId(), chatMessage);
     }
 
     @MessageMapping("/chat.addUser")
     public void addUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
+        System.out.println("addUser");
+
         // Add username in web socket session
+
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
 
         if(!roomRepository.findByIdRoom(chatMessage.getRoomId()).isPresent())
             roomRepository.save(new Room(chatMessage.getRoomId()));
 
         messagingTemplate.convertAndSend("/topic/" + chatMessage.getRoomId(), chatMessage);
+
+        Repository.room=roomRepository;
+        Repository.messageRepository=messageRepository;
+        Repository.messagingTemplate=messagingTemplate;
     }
 
     @MessageMapping("/chat.getListOnlineUser")
-    public void getListOnlineUser() {
+    public void getListOnlineUser()
+    {
+
         messagingTemplate.convertAndSend("/topic/onlineList", Global.listOnlineUser);
     }
     //@MessageMapping("/chat.sendMessage")

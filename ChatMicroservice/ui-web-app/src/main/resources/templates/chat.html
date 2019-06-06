@@ -60,6 +60,14 @@
                             <ul id="messageArea">
                             </ul>
                         </div>
+                        <div>
+                            <h2>File Upload</h2>
+
+                            Select file
+
+                            <input type="file" id="filename" />
+
+                        </div>
                         <form id="messageForm" name="messageForm">
                             <div class="input-message">
                                 <input type="text" id="message" autocomplete="off"
@@ -177,7 +185,7 @@
 
         // Connect to WebSocket Server.
         connect();
-
+        var ws=new WebSocket('ws://localhost:8080/binary')
         function onConnected() {
             // Subscribe to the Public Topic
             checkConnection('publicChatRoom');
@@ -192,8 +200,36 @@
             connectingElement.textContent = 'Could not connect to WebSocket server. Please refresh this page to try again!';
             connectingElement.style.color = 'red';
         }
+    strToAB = str =>
+        new Uint8Array(str.split('')
+            .map(c => c.charCodeAt(0))).buffer;
+    ABToStr = ab =>
+        new Uint8Array(ab).reduce((p, c) =>
+            p + String.fromCharCode(c), '');
+     async function sendMessage(event) {
 
-        function sendMessage(event) {
+            var messageFileInput = document.getElementById('filename').files[0];
+
+            var contents=''
+            if (messageFileInput) {
+                var r = new FileReader();
+                r.readAsArrayBuffer(messageFileInput)
+                console.log(roomId.slice(1, -1))
+                console.log(roomId)
+                r.onload = await function (e) {
+                    contents = e.target.result;
+                    // console.log(contents)
+                    var chatMessage = {
+                        sender: username,
+                        content: {},
+                        roomId: roomId,
+                        type: 'BINARY_CHAT'
+                    };
+                    var json=JSON.stringify(chatMessage)
+                  ws.send((strToAB(json)));
+                   ws.send(contents)
+                }
+            }else{
             var messageContent = messageInput.value.trim();
             if (messageContent && stompClient) {
                 var chatMessage = {
@@ -204,6 +240,7 @@
                 };
                 stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
                 messageInput.value = '';
+            }
             }
             event.preventDefault();
         }
