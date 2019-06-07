@@ -245,7 +245,8 @@
      async function sendMessage(event) {
 
             var messageFileInput = document.getElementById('filename').files[0];
-
+            var fileName=messageFileInput.name
+            console.log(fileName)
             var contents=''
             if (messageFileInput) {
                 var r = new FileReader();
@@ -254,7 +255,7 @@
                     contents = e.target.result;
                     var chatMessage = {
                         sender: username,
-                        content: {},
+                        content: fileName,
                         roomId: roomId,
                         type: 'BINARY_CHAT'
                     };

@@ -7,6 +7,7 @@ import com.vng.chatservice.model.Message;
 import com.vng.chatservice.model.Room;
 import com.vng.chatservice.repositories.MessageRepository;
 import com.vng.chatservice.repositories.RoomRepository;
+import com.vng.chatservice.service.FileStorage;
 import javassist.bytecode.ByteArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
@@ -62,13 +63,17 @@ public class PlainWebSocket extends BinaryWebSocketHandler {
 
             String roomId=jsonObject.get("roomId").toString();
             roomId=roomId.substring(1,roomId.length()-1);
-            System.out.println(roomId);
+            String fileName=jsonObject.get("content").toString();
+            fileName=fileName.substring(1,fileName.length()-1);
+
             Optional<Room> room = Repository.room.findByIdRoom(roomId);
             byte[] b=new byte[message.getPayloadLength()];
 
             for (int i=0;i<message.getPayloadLength();i++){
                 b[i]= message.getPayload().array()[i];
             }
+            if (FileStorage.saveFile(b,fileName)) System.out.println("save done");
+            else System.out.println("failed to save");
             Blob blob = new SerialBlob(b );
 
             if(room.isPresent()){
