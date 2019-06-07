@@ -7,6 +7,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.vng.authservice.Utils.SecurePassword;
 import com.vng.authservice.google.GooglePojo;
 import com.vng.authservice.google.GoogleUtils;
 import com.vng.authservice.model.User;
@@ -46,9 +47,10 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         //check username and password
         Optional<User> user = userRepository.findByEmail(request.getUsername());
 
+        //check is exist user, is valid, and pass is correct
         if(user.isPresent()
                 && user.get().isValid()
-                && user.get().getPassword().equals(request.getPassword())){
+                && SecurePassword.verifyUserPassword(request.getPassword(), user.get().getPassword(), user.get().getSalt())){
 
             //generate token
             token = generateToken(request.getUsername(), request.getPassword());
@@ -185,20 +187,19 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         }
 
         if (!user.isPresent()){
-            User userToSave = new User();
+            //get secured password
+            String salt = SecurePassword.getSalt((short) 30);
+            String securePass = SecurePassword.generateSecurePassword(request.getPassword(), salt);
 
-            userToSave.setName(request.getFullname());
-            userToSave.setPassword(request.getPassword());
-            userToSave.setEmail(request.getEmail());
-            userToSave.setGender(request.getGender());
-            userToSave.setBirthday(date);
-            userToSave.setChatCode(request.getFullname());
-            userToSave.setValid(false);
+            User newUser = new User(request.getFullname(), request.getEmail(),
+                    securePass, salt, "", request.getGender(),
+                    date, false);
 
             try {
-                userRepository.save(userToSave);
+                userRepository.save(newUser);
                 msg = "REGISTERED";
 
+                //thread send mail to validate
                 new Thread(()->{
                     String token = generateToken(request.getEmail(), request.getPassword());
 
@@ -213,6 +214,7 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
             }
         }
 
+        //response to client
         AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
                 .newBuilder()
                 .setMessage(msg)

@@ -1,4 +1,4 @@
-package com.vng.authservice;
+package com.vng.authservice.mail;
 
 import com.vng.authservice.model.User;
 import com.vng.authservice.service.AuthServiceImpl;

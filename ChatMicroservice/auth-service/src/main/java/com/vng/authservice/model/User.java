@@ -28,6 +28,9 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "salt", nullable = false)
+    private String salt;
+
     @Column(name = "chat_code")
     private String chatCode;
 
@@ -41,11 +44,17 @@ public class User {
     private boolean isValid;
 
     public User(String name, String email, String password, String chatCode, boolean isValid){
+        this(name, email, password, "", chatCode, "", null, isValid);
+    }
+
+    public User(String name, String email, String password, String salt, String chatCode, String gender, Date birthday, boolean isValid){
         this.name = name;
         this.email = email;
         this.password = password;
+        this.salt = salt;
         this.chatCode = chatCode;
+        this.gender = gender;
+        this.birthday = birthday;
         this.isValid = isValid;
     }
-
 }
