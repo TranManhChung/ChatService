@@ -6,7 +6,7 @@
     <!-- https://cdnjs.com/libraries/sockjs-client -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
     <!-- https://cdnjs.com/libraries/stomp.js/ -->
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>jQuery UI Tabs - Default functionality</title>
@@ -14,9 +14,9 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        $( function() {
-            $( "#tabs" ).tabs();
-        } );
+        $(function () {
+            $("#tabs").tabs();
+        });
     </script>
 </head>
 <body>
@@ -47,7 +47,7 @@
                         <hr/>
 
                         <div id="connecting">Connecting...</div>
-<!--                        has message-->
+                        <!--                        has message-->
                         <div th:if="${messagesOfPublicChatRoom}">
                             <ul id="messageArea">
                                 <li class="event-message" th:each="mess: ${messagesOfPublicChatRoom}">
@@ -55,7 +55,7 @@
                                 </li>
                             </ul>
                         </div>
-<!--                        else-->
+                        <!--                        else-->
                         <div th:unless="${messagesOfPublicChatRoom}">
                             <ul id="messageArea">
                             </ul>
@@ -65,7 +65,7 @@
 
                             Select file
 
-                            <input type="file" id="filename" />
+                            <input type="file" id="filename"/>
 
                         </div>
                         <form id="messageForm" name="messageForm">
@@ -97,8 +97,8 @@
     <h3 id="endpoint" th:utext="${endpoint}"/>
     <h3 id="topic" th:utext="${topic}"/>
     <h3 id="chatCode" th:utext="${chatCode}"/>
-<!--    <h3> SESSION BELOW </h3>-->
-<!--    <p hidden id="session_token" th:text="${session.user}" ></p>-->
+    <!--    <h3> SESSION BELOW </h3>-->
+    <!--    <p hidden id="session_token" th:text="${session.user}" ></p>-->
 </div>
 
 <script>
@@ -115,13 +115,13 @@
     function checkConnection(roomIdTemp) {
 
         var flag = false;
-        for(var i=0;i<listConnected.length;i++){
-            if(roomIdTemp == listConnected[i]){
+        for (var i = 0; i < listConnected.length; i++) {
+            if (roomIdTemp == listConnected[i]) {
                 flag = true;
                 break;
             }
         }
-        if(flag == false){
+        if (flag == false) {
             listConnected.push(roomId)
 
             stompClient.subscribe('/topic/' + roomId, onMessageReceived_1);
@@ -148,7 +148,7 @@
             success: function (data) {
 
                 console.log(data)
-                for(var i=0;i<data.messages.length;i++){
+                for (var i = 0; i < data.messages.length; i++) {
                     var messageElement = document.createElement('li');
 
                     messageElement.classList.add('chat-message');
@@ -175,41 +175,66 @@
     }
 
 
+    var messageForm = document.querySelector('#messageForm');
+    var messageInput = document.querySelector('#message');
+    var messageArea = document.querySelector('#messageArea');
+    var connectingElement = document.querySelector('#connecting');
 
-        var messageForm = document.querySelector('#messageForm');
-        var messageInput = document.querySelector('#message');
-        var messageArea = document.querySelector('#messageArea');
-        var connectingElement = document.querySelector('#connecting');
+    var username = null;
+    var chatCode = document.querySelector('#chatCode').innerText;
 
-        var username = null;
-        var chatCode = document.querySelector('#chatCode').innerText;
+    function connect() {
+        username = document.querySelector('#username').innerText.trim();
 
-        function connect() {
-            username = document.querySelector('#username').innerText.trim();
+        var socket = new SockJS(document.querySelector('#endpoint').innerText);
+        stompClient = Stomp.over(socket);
 
-            var socket = new SockJS(document.querySelector('#endpoint').innerText);
-            stompClient = Stomp.over(socket);
+        stompClient.connect({}, onConnected, onError);
+    }
 
-            stompClient.connect({}, onConnected, onError);
-        }
-
-        // Connect to WebSocket Server.
-        connect();
-        var ws=new WebSocket('ws://localhost:8080/binary')
+    // Connect to WebSocket Server.
+    connect();
+    var ws = new WebSocket('ws://localhost:8080/binary')
     ws.binaryType = "arraybuffer";
 
     ws.onopen = function (event) {
         addMessageToWindow("Connected");
     };
-
+    let lastName=''
+    let lastLink=''
     ws.onmessage = function (event) {
-            console.log("onmessage")
+        console.log("onmessage")
+        console.log(event.data)
         if (event.data instanceof ArrayBuffer) {
-            addMessageToWindow('Got Image:');
-            addImageToWindow(event.data);
+
+            var downloadLink = document.createElement("a");
+            downloadLink.innerHTML = "Download File";
+            if (window.webkitURL != null)
+            {
+                // Chrome allows the link to be clicked
+                // without actually adding it to the DOM.
+                downloadLink.href = window.webkitURL.createObjectURL(event.data);
+
+                messageArea.appendChild(downloadLink);
+                messageArea.scrollTop = messageArea.scrollHeight;
+            }
+            else
+            {
+                // Firefox requires the link to be added to the DOM
+                // before it can be clicked.
+                downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+                downloadLink.onclick = destroyClickedElement;
+                downloadLink.style.display = "none";
+                messageArea.appendChild(downloadLink);
+                messageArea.scrollTop = messageArea.scrollHeight;
+            }
+            downloadLink.click();
+
         } else {
             addMessageToWindow(`Got Message: ${event.data}`);
         }
+
+
     };
 
 
@@ -222,48 +247,68 @@
         messageWindow.innerHTML += `<img src="${url}"/>`
     }
 
-        function onConnected() {
-            // Subscribe to the Public Topic
-            checkConnection('publicChatRoom');
-            stompClient.subscribe('/topic/onlineList', onMessageReceived_2);
-            stompClient.send("/app/chat.getListOnlineUser");
-            // Tell your username to the server
-            // stompClient.send("/app/chat.addUser", {}, JSON.stringify({sender: username, roomId: roomId, type: 'JOIN'}))
-            connectingElement.classList.add('hidden');
-        }
+    function onConnected() {
+        // Subscribe to the Public Topic
+        checkConnection('publicChatRoom');
+        stompClient.subscribe('/topic/onlineList', onMessageReceived_2);
+        stompClient.send("/app/chat.getListOnlineUser");
+        // Tell your username to the server
+        // stompClient.send("/app/chat.addUser", {}, JSON.stringify({sender: username, roomId: roomId, type: 'JOIN'}))
+        connectingElement.classList.add('hidden');
+    }
 
-        function onError(error) {
-            connectingElement.textContent = 'Could not connect to WebSocket server. Please refresh this page to try again!';
-            connectingElement.style.color = 'red';
-        }
+    function onError(error) {
+        connectingElement.textContent = 'Could not connect to WebSocket server. Please refresh this page to try again!';
+        connectingElement.style.color = 'red';
+    }
+
     strToAB = str =>
         new Uint8Array(str.split('')
             .map(c => c.charCodeAt(0))).buffer;
+
     ABToStr = ab =>
         new Uint8Array(ab).reduce((p, c) =>
             p + String.fromCharCode(c), '');
-     async function sendMessage(event) {
 
-            var messageFileInput = document.getElementById('filename').files[0];
-            var fileName=messageFileInput.name
-            console.log(fileName)
-            var contents=''
-            if (messageFileInput) {
-                var r = new FileReader();
-                r.readAsArrayBuffer(messageFileInput)
-                r.onload = await function (e) {
-                    contents = e.target.result;
-                    var chatMessage = {
-                        sender: username,
-                        content: fileName,
-                        roomId: roomId,
-                        type: 'BINARY_CHAT'
-                    };
-                    var json=JSON.stringify(chatMessage)
-                  ws.send((strToAB(json)));
-                   ws.send(contents)
-                }
-            }else{
+    function saveFileToDisk() {
+            console.log("saveFileToDisk")
+
+            var chatMessage = {
+                sender: username,
+                content: lastLink,
+                roomId: roomId,
+                type: 'GET_FILE'
+            };
+            var json = JSON.stringify(chatMessage)
+            ws.send((strToAB(json)));
+            ws.send(new ArrayBuffer(8))
+
+
+        event.preventDefault();
+    }
+
+    async function sendMessage(event) {
+
+        var messageFileInput = document.getElementById('filename').files[0];
+        var contents = ''
+        if (messageFileInput) {
+            var fileName = messageFileInput.name
+
+            var r = new FileReader();
+            r.readAsArrayBuffer(messageFileInput)
+            r.onload = await function (e) {
+                contents = e.target.result;
+                var chatMessage = {
+                    sender: username,
+                    content: fileName,
+                    roomId: roomId,
+                    type: 'BINARY_CHAT'
+                };
+                var json = JSON.stringify(chatMessage)
+                ws.send((strToAB(json)));
+                ws.send(contents)
+            }
+        } else {
             var messageContent = messageInput.value.trim();
             if (messageContent && stompClient) {
                 var chatMessage = {
@@ -275,33 +320,48 @@
                 stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
                 messageInput.value = '';
             }
-            }
-            event.preventDefault();
         }
+        event.preventDefault();
+    }
 
-        function onMessageReceived_1(payload) {
-            console.log(payload.body)
-         console.log("onMessageReceived_1")
-            var message = JSON.parse(payload.body);
+    function onMessageReceived_1(payload) {
+        console.log(payload.body)
+        console.log("onMessageReceived_1")
+        var message = JSON.parse(payload.body);
+        var message = JSON.parse(payload.body);
 
-            if (message.roomId == roomId) {
-                var messageElement = document.createElement('li');
+        if (message.roomId == roomId) {
+            var messageElement = document.createElement('li');
 
-                if (message.type === 'JOIN') {
-                    messageElement.classList.add('event-message');
-                    message.content = message.sender + ' joined!';
-                } else if (message.type === 'LEAVE') {
-                    messageElement.classList.add('event-message');
-                    message.content = message.sender + ' left!';
-                } else {
-                    messageElement.classList.add('chat-message');
-                    var usernameElement = document.createElement('strong');
-                    usernameElement.classList.add('nickname');
-                    var usernameText = document.createTextNode(message.sender);
-                    usernameElement.appendChild(usernameText);
-                    messageElement.appendChild(usernameElement);
-                }
+            if (message.type === 'JOIN') {
+                messageElement.classList.add('event-message');
+                message.content = message.sender + ' joined!';
+            } else if (message.type === 'LEAVE') {
+                messageElement.classList.add('event-message');
+                message.content = message.sender + ' left!';
+            } else {
+                messageElement.classList.add('chat-message');
+                var usernameElement = document.createElement('strong');
+                usernameElement.classList.add('nickname');
+                var usernameText = document.createTextNode(message.sender);
+                usernameElement.appendChild(usernameText);
+                messageElement.appendChild(usernameElement);
+            }
 
+            if (message.type == 'CHAT_LINK') {
+
+
+                var textElement = document.createElement('span');
+                textElement.innerHTML = '<button id='+'"'+message.content+'" onclick="saveFileToDisk()" >'+message.fileName+'</button>';
+
+                lastName=message.fileName
+                lastLink=message.content
+
+                messageElement.appendChild(textElement);
+
+                messageArea.appendChild(messageElement);
+                messageArea.scrollTop = messageArea.scrollHeight;
+            } else {
                 var textElement = document.createElement('span');
                 var messageText = document.createTextNode(message.content);
                 textElement.appendChild(messageText);
@@ -311,33 +371,34 @@
                 messageArea.appendChild(messageElement);
                 messageArea.scrollTop = messageArea.scrollHeight;
             }
+
         }
+    }
 
-        function onMessageReceived_2(payload) {
-         console.log("onMessageReceived_2")
-            var message = JSON.parse(payload.body);
+    function onMessageReceived_2(payload) {
+        console.log("onMessageReceived_2")
+        var message = JSON.parse(payload.body);
 
+        var content = '<li onclick="moveToChatPage(\'' + 'publicChatRoom' + '\')">General</li>';
 
-            var content = '<li onclick="moveToChatPage(\'' + 'publicChatRoom' + '\')">General</li>';
+        for (var i = 0; i < message.length; i++) {
+            if (message[i].username !== username) {
+                // var temp = username > message[i] ? username + message[i] : message[i] + username;
+                var temp = chatCode > message[i].chatCode ? chatCode + message[i].chatCode : message[i].chatCode + chatCode;
 
-            for (var i = 0; i < message.length; i++) {
-                if (message[i].username !== username) {
-                    // var temp = username > message[i] ? username + message[i] : message[i] + username;
-                    var temp = chatCode > message[i].chatCode ? chatCode + message[i].chatCode : message[i].chatCode + chatCode;
+                console.log("chat code root : " + chatCode + "/" + "user chat code : " + message[i].chatCode);
 
-                    console.log("chat code root : " + chatCode + "/" + "user chat code : " + message[i].chatCode);
-
-                    content += '<li onclick="moveToChatPage(\'' + temp + '\')">' + message[i].username + '</li>';
-                }
+                content += '<li onclick="moveToChatPage(\'' + temp + '\')">' + message[i].username + '</li>';
             }
-            $('#online-list').html(content);
         }
+        $('#online-list').html(content);
+    }
 
-        messageForm.addEventListener('submit', sendMessage, true);
+    messageForm.addEventListener('submit', sendMessage, true);
 
-        $('document').ready(function () {
+    $('document').ready(function () {
 
-        })
+    })
 
 </script>
 </body>

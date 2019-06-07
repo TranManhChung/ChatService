@@ -65,7 +65,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>3.8.0</version>
+		</dependency>
 		<!-- org.apache.httpcomponents -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>

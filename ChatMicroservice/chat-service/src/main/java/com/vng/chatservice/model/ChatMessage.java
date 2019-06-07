@@ -11,7 +11,8 @@ public class ChatMessage {
     private String content;
     private String sender;
     private String roomId;
+    private String fileName;
     public enum MessageType {
-        CHAT, JOIN, LEAVE
+        CHAT, JOIN, LEAVE,CHAT_LINK
     }
 }
