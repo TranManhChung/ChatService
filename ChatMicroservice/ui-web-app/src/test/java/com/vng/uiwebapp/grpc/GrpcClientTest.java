@@ -1,4 +1,4 @@
-package com.vng.uiwebapp;
+package com.vng.uiwebapp.grpc;
 
 
 import com.vng.apigateway.WebClientServiceOuterClass;

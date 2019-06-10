@@ -1,4 +1,4 @@
-package com.vng.apigatewayservice.grpc.server;
+package com.vng.apigatewayservice.grpc;
 
 import com.vng.apigateway.WebClientServiceGrpc;
 import com.vng.apigateway.WebClientServiceOuterClass;

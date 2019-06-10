@@ -34,7 +34,14 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
     private GoogleUtils googleUtils;
 
     @Autowired
+    public JavaMailSender emailSender;
+
+    @Autowired
     private UserRepository userRepository;
+
+    private String issuer = "auth0";
+    private String passphrase = "secret";
+    private static int expireTime = 10 * 60 * 1000; //10 minute
 
     @Override
     public void login(AuthServiceOuterClass.Request request,
@@ -127,50 +134,6 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    private String issuer = "auth0";
-    private String passphrase = "secret";
-    private static int expireTime = 10 * 60 * 1000; //10 minute
-
-    public String generateToken(String username, String password) {
-
-        Date exp = new Date(System.currentTimeMillis() + expireTime);
-        String token = null;
-        try {
-            Algorithm algorithmHS = Algorithm.HMAC256(passphrase);
-            token = JWT.create()
-                    .withIssuer(issuer)
-                    .withExpiresAt(exp)
-                    .withClaim("username", username)
-                    .withClaim("password", password)
-                    .sign(algorithmHS);
-        } catch (IllegalArgumentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        return token;
-    }
-
-    public DecodedJWT decodeToken(String token) {
-        DecodedJWT jwt = null;
-        try {
-            Algorithm algorithm = Algorithm.HMAC256(passphrase);
-            JWTVerifier verifier = JWT.require(algorithm)
-                    .withIssuer(issuer)
-                    .build();
-            jwt = verifier.verify(token);
-        } catch (TokenExpiredException e) {
-            System.out.println("The Token has expired");
-        } catch (SignatureVerificationException e) {
-            System.out.println("The Token's Signature resulted invalid when verified using the Algorithm: HmacSHA256");
-        } catch (JWTVerificationException e){
-            //Invalid signature/claims
-            e.printStackTrace();
-        }
-
-        return jwt;
-    }
-
     @Override
     public void register(AuthServiceOuterClass.RegisterRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
         Optional<User> user = userRepository.findByEmail(request.getEmail());
@@ -251,45 +214,6 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    @Autowired
-    public JavaMailSender emailSender;
-
-    public boolean sendHtmlTemplate(String mail, String token, int type) throws MessagingException {
-        MimeMessage message = emailSender.createMimeMessage();
-        boolean mutilpart = true;
-        MimeMessageHelper helper = new MimeMessageHelper(message, mutilpart, "UTF-8");
-        String html = "";
-
-        if (type == 1){
-            String link = "localhost:8086/confirmregister?token=" + token;
-            html = "<div><a href='mailto:" + mail + "' target='_blank'>" + mail + "</a><br>" +
-                    "\t\t\t\t\t\t\t\t- Your account: <a href='mailto:" + mail + "' target='_blank'> " + mail + "</a><br>\n" +
-                    "\t\t\t\t\t\t\t\t- Please click <a href='http://" + link + "'>here</a> to confirm register for account <a href='mailto:" + mail + "' target='_blank'>" + mail + "</a>:<br>\n" +
-                    "\t\t\t\t\t\t\t\t- If you don't request, please ignore this mail<br>\n" +
-                    "\t\t\t\t\t\t\t\t<br><br>\n" +
-                    "\t\t\t\t\t\t\t\t\n" +
-                    "\t\t\t\t\t\t\t\t- Don't reply this mail.<br>\n" +
-                    "</div>";
-        } else if (type == 2) {
-            String link = "localhost:8086/confirmchangepassword?token=" + token;
-            html = "<div><a href='mailto:" + mail + "' target='_blank'>" + mail + "</a><br>" +
-                    "\t\t\t\t\t\t\t\t- Your account: <a href='mailto:" + mail + "' target='_blank'> " + mail + "</a><br>\n" +
-                    "\t\t\t\t\t\t\t\t- Please click <a href='http://" + link + "'>here</a> to change your password<a href='mailto:" + mail + "' target='_blank'>" + mail + "</a>:<br>\n" +
-                    "\t\t\t\t\t\t\t\t- If you don't request, please ignore this mail<br>\n" +
-                    "\t\t\t\t\t\t\t\t<br><br>\n" +
-                    "\t\t\t\t\t\t\t\t\n" +
-                    "\t\t\t\t\t\t\t\t- Don't reply this mail.<br>\n" +
-                    "</div>";
-        }
-
-        message.setContent(html, "text/html");
-        helper.setTo(mail);
-        helper.setSubject("Confirm Register");
-
-        emailSender.send(message);
-        return true;
-    }
-
     @Override
     public void forgot(AuthServiceOuterClass.ForgotRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
         Optional<User> user = userRepository.findByEmail(request.getEmail());
@@ -350,4 +274,81 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
+
+    public boolean sendHtmlTemplate(String mail, String token, int type) throws MessagingException {
+        MimeMessage message = emailSender.createMimeMessage();
+        boolean mutilpart = true;
+        MimeMessageHelper helper = new MimeMessageHelper(message, mutilpart, "UTF-8");
+        String html = "";
+
+        if (type == 1){
+            String link = "localhost:8086/confirmregister?token=" + token;
+            html = "<div><a href='mailto:" + mail + "' target='_blank'>" + mail + "</a><br>" +
+                    "\t\t\t\t\t\t\t\t- Your account: <a href='mailto:" + mail + "' target='_blank'> " + mail + "</a><br>\n" +
+                    "\t\t\t\t\t\t\t\t- Please click <a href='http://" + link + "'>here</a> to confirm register for account <a href='mailto:" + mail + "' target='_blank'>" + mail + "</a>:<br>\n" +
+                    "\t\t\t\t\t\t\t\t- If you don't request, please ignore this mail<br>\n" +
+                    "\t\t\t\t\t\t\t\t<br><br>\n" +
+                    "\t\t\t\t\t\t\t\t\n" +
+                    "\t\t\t\t\t\t\t\t- Don't reply this mail.<br>\n" +
+                    "</div>";
+        } else if (type == 2) {
+            String link = "localhost:8086/confirmchangepassword?token=" + token;
+            html = "<div><a href='mailto:" + mail + "' target='_blank'>" + mail + "</a><br>" +
+                    "\t\t\t\t\t\t\t\t- Your account: <a href='mailto:" + mail + "' target='_blank'> " + mail + "</a><br>\n" +
+                    "\t\t\t\t\t\t\t\t- Please click <a href='http://" + link + "'>here</a> to change your password<a href='mailto:" + mail + "' target='_blank'>" + mail + "</a>:<br>\n" +
+                    "\t\t\t\t\t\t\t\t- If you don't request, please ignore this mail<br>\n" +
+                    "\t\t\t\t\t\t\t\t<br><br>\n" +
+                    "\t\t\t\t\t\t\t\t\n" +
+                    "\t\t\t\t\t\t\t\t- Don't reply this mail.<br>\n" +
+                    "</div>";
+        }
+
+        message.setContent(html, "text/html");
+        helper.setTo(mail);
+        helper.setSubject("Confirm Register");
+
+        emailSender.send(message);
+        return true;
+    }
+
+    public String generateToken(String username, String password) {
+
+        Date exp = new Date(System.currentTimeMillis() + expireTime);
+        String token = null;
+        try {
+            Algorithm algorithmHS = Algorithm.HMAC256(passphrase);
+            token = JWT.create()
+                    .withIssuer(issuer)
+                    .withExpiresAt(exp)
+                    .withClaim("username", username)
+                    .withClaim("password", password)
+                    .sign(algorithmHS);
+        } catch (IllegalArgumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return token;
+    }
+
+    public DecodedJWT decodeToken(String token) {
+        DecodedJWT jwt = null;
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(passphrase);
+            JWTVerifier verifier = JWT.require(algorithm)
+                    .withIssuer(issuer)
+                    .build();
+            jwt = verifier.verify(token);
+        } catch (TokenExpiredException e) {
+            System.out.println("The Token has expired");
+        } catch (SignatureVerificationException e) {
+            System.out.println("The Token's Signature resulted invalid when verified using the Algorithm: HmacSHA256");
+        } catch (JWTVerificationException e){
+            //Invalid signature/claims
+            e.printStackTrace();
+        }
+
+        return jwt;
+    }
+
 }
