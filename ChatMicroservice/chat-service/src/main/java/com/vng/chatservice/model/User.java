@@ -1,6 +1,7 @@
 package com.vng.chatservice.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.Set;
 @Table(name = "user")
 @Getter
 @Setter
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -23,8 +25,6 @@ public class User {
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
-
-
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -41,8 +41,10 @@ public class User {
     @Column(name = "isvalid")
     private boolean isValid;
 
-    @ManyToMany
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
 }

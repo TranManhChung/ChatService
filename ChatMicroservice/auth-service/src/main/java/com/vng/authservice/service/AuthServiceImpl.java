@@ -34,7 +34,14 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
     private GoogleUtils googleUtils;
 
     @Autowired
+    public JavaMailSender emailSender;
+
+    @Autowired
     private UserRepository userRepository;
+
+    private String issuer = "auth0";
+    private String passphrase = "secret";
+    private static int expireTime = 10 * 60 * 1000; //10 minute
 
     @Override
     public void login(AuthServiceOuterClass.Request request,
@@ -127,50 +134,6 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    private String issuer = "auth0";
-    private String passphrase = "secret";
-    private static int expireTime = 10 * 60 * 1000; //10 minute
-
-    public String generateToken(String username, String password) {
-
-        Date exp = new Date(System.currentTimeMillis() + expireTime);
-        String token = null;
-        try {
-            Algorithm algorithmHS = Algorithm.HMAC256(passphrase);
-            token = JWT.create()
-                    .withIssuer(issuer)
-                    .withExpiresAt(exp)
-                    .withClaim("username", username)
-                    .withClaim("password", password)
-                    .sign(algorithmHS);
-        } catch (IllegalArgumentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        return token;
-    }
-
-    public DecodedJWT decodeToken(String token) {
-        DecodedJWT jwt = null;
-        try {
-            Algorithm algorithm = Algorithm.HMAC256(passphrase);
-            JWTVerifier verifier = JWT.require(algorithm)
-                    .withIssuer(issuer)
-                    .build();
-            jwt = verifier.verify(token);
-        } catch (TokenExpiredException e) {
-            System.out.println("The Token has expired");
-        } catch (SignatureVerificationException e) {
-            System.out.println("The Token's Signature resulted invalid when verified using the Algorithm: HmacSHA256");
-        } catch (JWTVerificationException e){
-            //Invalid signature/claims
-            e.printStackTrace();
-        }
-
-        return jwt;
-    }
-
     @Override
     public void register(AuthServiceOuterClass.RegisterRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
         Optional<User> user = userRepository.findByEmail(request.getEmail());
@@ -251,10 +214,70 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    @Autowired
-    public JavaMailSender emailSender;
+    @Override
+    public void forgot(AuthServiceOuterClass.ForgotRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+        Optional<User> user = userRepository.findByEmail(request.getEmail());
+        String msg = "";
 
-    public boolean sendHtmlTemplate(String mail, String token, int type) throws MessagingException {
+        if (!user.isPresent()) {
+            msg = "FAIL";
+        } else {
+            new Thread(()->{
+                String token = generateToken(user.get().getEmail(), user.get().getPassword());
+
+                try {
+                    sendHtmlTemplate(request.getEmail(),token, 2);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+
+            msg = "SUCCESS";
+        }
+
+        AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(msg)
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void changePass(AuthServiceOuterClass.ChangeRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
+        DecodedJWT jwt = decodeToken(request.getToken());
+        String msg = "";
+
+        if (jwt != null){
+            String email = jwt.getClaim("username").asString();
+            String newPass = request.getNewpass();
+
+            User user = userRepository.findByEmail(email).get();
+
+            user.setPassword(newPass);
+
+            try {
+                userRepository.save(user);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
+            msg = "SUCCESS";
+        } else {
+            msg = "FAIL";
+        }
+
+        AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
+                .newBuilder()
+                .setMessage(msg)
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    public void sendHtmlTemplate(String mail, String token, int type) throws MessagingException {
         MimeMessage message = emailSender.createMimeMessage();
         boolean mutilpart = true;
         MimeMessageHelper helper = new MimeMessageHelper(message, mutilpart, "UTF-8");
@@ -287,67 +310,46 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         helper.setSubject("Confirm Register");
 
         emailSender.send(message);
-        return true;
     }
 
-    @Override
-    public void forgot(AuthServiceOuterClass.ForgotRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
-        Optional<User> user = userRepository.findByEmail(request.getEmail());
-        String msg = "";
+    public String generateToken(String username, String password) {
 
-        if (!user.isPresent()) {
-            msg = "Your email is incorrect!";
-        } else {
-            new Thread(()->{
-                String token = generateToken(user.get().getEmail(), user.get().getPassword());
-
-                try {
-                    sendHtmlTemplate(request.getEmail(),token, 2);
-                } catch (MessagingException e) {
-                    e.printStackTrace();
-                }
-            }).start();
-
-            msg = "Please check your email!";
+        Date exp = new Date(System.currentTimeMillis() + expireTime);
+        String token = null;
+        try {
+            Algorithm algorithmHS = Algorithm.HMAC256(passphrase);
+            token = JWT.create()
+                    .withIssuer(issuer)
+                    .withExpiresAt(exp)
+                    .withClaim("username", username)
+                    .withClaim("password", password)
+                    .sign(algorithmHS);
+        } catch (IllegalArgumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
 
-        AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
-                .newBuilder()
-                .setMessage(msg)
-                .build();
-
-        responseObserver.onNext(response);
-        responseObserver.onCompleted();
+        return token;
     }
 
-    @Override
-    public void changePass(AuthServiceOuterClass.ChangeRequest request, StreamObserver<AuthServiceOuterClass.Message> responseObserver) {
-        DecodedJWT jwt = decodeToken(request.getToken());
-        String msg = "";
-
-        if (jwt != null){
-            String email = jwt.getClaim("username").asString();
-            String newPass = request.getNewpass();
-
-            User user = userRepository.findByEmail(email).get();
-
-            user.setPassword(newPass);
-
-            try {
-                userRepository.save(user);
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-
-            msg = "Your password is changed";
+    public DecodedJWT decodeToken(String token) {
+        DecodedJWT jwt = null;
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(passphrase);
+            JWTVerifier verifier = JWT.require(algorithm)
+                    .withIssuer(issuer)
+                    .build();
+            jwt = verifier.verify(token);
+        } catch (TokenExpiredException e) {
+            System.out.println("The Token has expired");
+        } catch (SignatureVerificationException e) {
+            System.out.println("The Token's Signature resulted invalid when verified using the Algorithm: HmacSHA256");
+        } catch (JWTVerificationException e){
+            //Invalid signature/claims
+            e.printStackTrace();
         }
 
-        AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
-                .newBuilder()
-                .setMessage(msg)
-                .build();
-
-        responseObserver.onNext(response);
-        responseObserver.onCompleted();
+        return jwt;
     }
+
 }
