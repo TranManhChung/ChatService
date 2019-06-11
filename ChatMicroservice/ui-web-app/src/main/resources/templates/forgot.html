@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Security Hello</title>
+</head>
+<body>
+
+<div>Enter username or email: </div>
+<form name='register-form' th:action="@{/afterForgotSubmit}" method='POST'>
+    <!--/*@thymesVar id="messages" type="ch"*/-->
+    <div th:utext="${messages}" style="color: red;"></div>
+    <table>
+        <tr>
+            <td>Email</td>
+            <td><input type='email' name='email' value=''></td>
+        </tr>
+        <tr>
+            <td><input name="submit" type="submit" value="submit" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
