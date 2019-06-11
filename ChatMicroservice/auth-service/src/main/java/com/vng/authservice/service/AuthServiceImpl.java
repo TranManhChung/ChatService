@@ -222,7 +222,7 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         String msg = "";
 
         if (!user.isPresent()) {
-            msg = "Your email is incorrect!";
+            msg = "FAIL";
         } else {
             new Thread(()->{
                 String token = generateToken(user.get().getEmail(), user.get().getPassword());
@@ -234,7 +234,7 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
                 }
             }).start();
 
-            msg = "Please check your email!";
+            msg = "SUCCESS";
         }
 
         AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
@@ -265,7 +265,9 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
                 e.printStackTrace();
             }
 
-            msg = "Your password is changed";
+            msg = "SUCCESS";
+        } else {
+            msg = "FAIL";
         }
 
         AuthServiceOuterClass.Message response = AuthServiceOuterClass.Message
@@ -277,7 +279,7 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    public boolean sendHtmlTemplate(String mail, String token, int type) throws MessagingException {
+    public void sendHtmlTemplate(String mail, String token, int type) throws MessagingException {
         MimeMessage message = emailSender.createMimeMessage();
         boolean mutilpart = true;
         MimeMessageHelper helper = new MimeMessageHelper(message, mutilpart, "UTF-8");
@@ -310,7 +312,6 @@ public class AuthServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         helper.setSubject("Confirm Register");
 
         emailSender.send(message);
-        return true;
     }
 
     public String generateToken(String username, String password) {

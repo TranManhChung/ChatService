@@ -3,6 +3,7 @@ package com.vng.chatservice.repositories;
 import com.vng.chatservice.model.Room;
 import com.vng.chatservice.repositories.RoomRepository;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,6 +47,6 @@ public class RoomRepositoryTest {
 
     @Test
     public void whenFindByInvalidIdRoom_thenReturnNull(){
-        assertThat(roomRepository.findByIdRoom("random-room-id").isPresent()).isEqualTo(false);
+        assertThat(roomRepository.findByIdRoom("random-room-id")).isEqualTo(false);
     }
 }
