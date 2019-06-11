@@ -24,17 +24,17 @@ public class Message {
 
     private String email;
 
-    private Blob fileMess;
+    private String fileMess;
 
     @ManyToOne
     @JoinColumn(name = "room")
     private Room room;
 
-    public Message(String mess, String email, Room room,Blob file){
+    public Message(String mess, String email, Room room,String fileName){
         this.mess = mess;
         this.email = email;
         this.room = room;
-        this.fileMess = file;
+        this.fileMess = fileName;
     }
 
 }

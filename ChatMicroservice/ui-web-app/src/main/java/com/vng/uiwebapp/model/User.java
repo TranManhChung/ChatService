@@ -1,11 +1,7 @@
 package com.vng.uiwebapp.model;
 
-import com.google.errorprone.annotations.FormatString;
-import com.vng.apigateway.WebClientServiceOuterClass;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor

@@ -1,16 +1,13 @@
 package com.vng.chatservice;
 
-import org.junit.Test;
+import com.vng.chatservice.controller.MessageControllerTest;
+import com.vng.chatservice.repositories.MessageRepositoryTest;
+import com.vng.chatservice.repositories.RoomRepositoryTest;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.runners.Suite;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+@RunWith(Suite.class)
+@Suite.SuiteClasses({MessageRepositoryTest.class, RoomRepositoryTest.class, MessageControllerTest.class})
 public class ChatServiceApplicationTests {
-
-    @Test
-    public void contextLoads() {
-    }
 
 }
