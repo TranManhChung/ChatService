@@ -1,5 +1,6 @@
 package com.vng.chatservice.controller;
 
+import com.vng.chatservice.cache.Repository;
 import com.vng.chatservice.form.RoomForm;
 import com.vng.chatservice.model.Room;
 import com.vng.chatservice.repositories.RoomRepository;
@@ -19,6 +20,7 @@ public class MessageController {
 
     @GetMapping(value = "/messages/{roomId}")
     public ResponseEntity<?> getMessages(@PathVariable String roomId) {
+
 
         Optional<Room> result = roomRepository.findByIdRoom(roomId);
         RoomForm roomForm = new RoomForm();
