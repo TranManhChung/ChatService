@@ -65,229 +65,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="apigatewayservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="authservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="authservice" type="462c0819:PsiDirectoryNode" />
-              <item name="mail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="authservice" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="auth-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="chat-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="chat-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="chat-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="chat-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="chat-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="chatservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="chat-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="chatservice" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="chat-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="uiwebapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChatMicroservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatMicroservice" type="462c0819:PsiDirectoryNode" />
-              <item name="ui-web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -393,16 +172,17 @@
       <workItem from="1559894833838" duration="5931000" />
       <workItem from="1560218238501" duration="23000" />
       <workItem from="1560219119945" duration="256000" />
+      <workItem from="1560219726872" duration="366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6210000" />
+    <option name="totallyTimeSpent" value="6576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25534245" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25808218" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
